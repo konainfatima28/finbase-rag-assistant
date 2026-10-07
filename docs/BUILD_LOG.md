@@ -518,3 +518,38 @@ Failed items in the final run:
 
 The previous final run `20261006T231154Z-full` stays in `eval/results/` for comparison. To do after pushing: confirm on Render's Metrics → Memory that the instance stays below 512 MB across several `/api/chat` calls, including a broad question.
 
+---
+
+## Deployment fix 2 — glibc allocator thresholds (D-035, 2026-10-07)
+
+**Observed on Render after D-034 went live (commit `0965116`):**
+- confirmed in the dashboard: `--workers 1`, `OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MALLOC_ARENA_MAX`;
+- `/api/health` 200; normal question 200 with valid citations; not-found question 200, correct abstention;
+- broad question "What are the requirements for opening a savings account?" → **502, out of memory (>512 MB)**.
+
+**Investigation (no code change).** Each query ran in one fresh local process with production settings and real OpenAI calls, with every stage instrumented at runtime:
+
+| stage | normal "What documents are required…" | broad "What are the requirements…" |
+|---|---|---|
+| startup | peak 192 → 156 MB | peak 193 → 156 MB |
+| rewrite | 3 sub-queries | 3 sub-queries |
+| main rerank (12 passages, batch 4) | longest pair ~195 tokens, peak 190 MB | **longest pair ~398 tokens, peak 240 MB** |
+| 3 sub-query reranks (8 passages each) | peaks 192–195 MB | peaks 193–195 MB |
+| merge + context | 24 → 9 blocks, 1,540 tokens, +0 MB | 28 → 8 blocks, 1,525 tokens, +0 MB |
+| generation | +0 MB | +0 MB |
+| **request peak / after** | **195 / 179 MB** | **240 / 179 MB** |
+
+- One reranker instance, sequential sub-queries, no accumulation (RSS back to ~178 MB after each stage).
+- Production is single-process: 12 consecutive `/api/metrics` samples after one request all reported `requests=1`.
+- Likely Linux mechanism: glibc's dynamic mmap threshold retains the reranker's ~30 MB transient tensors in the heap (D-035).
+
+**Change:** `render.yaml` adds `MALLOC_MMAP_THRESHOLD_=131072` and `MALLOC_TRIM_THRESHOLD_=131072`; `.env.example` documents them; D-035; `docs/DEPLOYMENT.md` and the README memory paragraph updated. No Python, RAG, frontend or dependency change.
+
+| check | result |
+|---|---|
+| backend `pytest` | 338 passed |
+| `ruff check` / `ruff format --check` / `mypy` (strict) | pass / 90 files formatted / no issues in 71 files |
+| offline retrieval eval | recall@5 0.9821, MRR 0.9409, nDCG@10 0.9496 (identical to D-034) |
+
+**To verify after deploying:** Render Metrics → Memory during the broad question. If it still exceeds 512 MB, the fallback is a token-budget cap on rerank batches (would change scores; needs re-evaluation).
+

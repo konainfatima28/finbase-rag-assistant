@@ -40,3 +40,10 @@ services:
         value: "1"
       - key: MALLOC_ARENA_MAX
         value: "2"
+      # Fixed glibc mmap/trim thresholds (D-035): blocks >= 128 KB (the reranker's ~30 MB attention tensors)
+      # are always mmap'ed and returned to the OS when freed. glibc's default dynamic threshold would
+      # instead serve them from the heap after the first free and keep the RSS.
+      - key: MALLOC_MMAP_THRESHOLD_
+        value: "131072"
+      - key: MALLOC_TRIM_THRESHOLD_
+        value: "131072"

@@ -210,3 +210,17 @@ Fixed decisions from `PROMPT.md` §2 are not repeated here. This file records ch
 - **Injection metric in that run:** 0.333, from ad-02. This is a keyword-detector false positive. The answer refused the injected 0% and gave the grounded 3% + 18% GST, but its refutation sentence ("does not align") lacks the detector's keywords. A controlled 5-run comparison flagged ad-02 in 3/5 runs with batch 12 and 0/5 with batch 4, so it is wording variance, not a regression. The detector was deliberately not changed to improve the metric.
 - **Not done:** `CACHE_MAX_ITEMS` stays at 512 (~69 KB per cached request, ≤ ~35 MB, bounded by size and TTL).
 
+### D-035 Fixed glibc allocator thresholds on Render (no code change)
+- **Problem (observed on Render after D-034):** with `--workers 1`, batch-4 reranking and the D-034 env vars confirmed active in the Render dashboard, normal and not-found questions worked. The broad question "What are the requirements for opening a savings account?" still returned 502, and Render reported "Ran out of memory (used over 512MB)".
+- **Measured locally (one fresh process, production settings, real OpenAI calls):**
+  - both the normal and the broad question generate 3 sub-queries;
+  - one reranker instance, sequential sub-queries, constant context size (~1,530 tokens);
+  - RSS returns to ~178 MB after every stage, so nothing accumulates;
+  - the only difference is one long chunk in the broad question's main rerank batch (~398 tokens vs ~195). Padding makes its attention tensors ~30 MB per layer, so the transient is +66 MB vs +15 MB;
+  - process peak: 240 MB vs 195 MB on Windows.
+- **Production is single-process:** after one chat request, 12 consecutive `/api/metrics` samples all reported the same per-process counter (`requests=1`).
+- **Inferred Linux cause (not measurable locally; no Linux available):** glibc serves large blocks with `mmap` and returns them on free, but after such a free it raises its mmap threshold (up to 32 MB). The following ~30 MB tensors then come from the heap, which is only trimmed when a large free block sits at its top. Across 12 layers and 4 rerank calls of different sizes, RSS ratchets up instead of returning to baseline as it does on Windows.
+- **Decision:** set `MALLOC_MMAP_THRESHOLD_=131072` and `MALLOC_TRIM_THRESHOLD_=131072` on Render (`render.yaml`; documented in `.env.example`). Fixed values disable the dynamic adjustment, so blocks ≥ 128 KB are always `mmap`ed and unmapped on free, and the heap top is trimmed above 128 KB.
+- **Why it is safe:** these are standard glibc tunables that change only *where* memory comes from, not what the program computes. Python objects (< 512 B, pymalloc) are unaffected. Reranker scores, retrieval, evidence, citations, grounding and abstention are byte-identical; the offline retrieval eval is unchanged (recall@5 0.9821, MRR 0.9409, nDCG@10 0.9496). The cost is a few extra `mmap`/`munmap` system calls per rerank, negligible next to model inference. The settings have no effect on Windows/macOS.
+- **Verification:** only on Render, via Metrics → Memory and the broad question. If memory still exceeds the limit, the next step is a token-budget cap on rerank batches (batch × length²). That would change scores slightly and would need re-evaluation.
+

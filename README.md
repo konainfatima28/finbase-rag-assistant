@@ -237,7 +237,7 @@ Final run `20261007T014916Z-full` (real calls, concurrent eval requests, local W
 - the reranker scored all 12 candidates in one padded batch, a transient of up to +317 MB;
 - the start command let uvicorn take its worker count from Render's `WEB_CONCURRENCY`, so several full copies of the app could run.
 
-Fix (D-034): `RERANK_BATCH_SIZE=4`, `--workers 1`, and `OMP_NUM_THREADS=1` / `OPENBLAS_NUM_THREADS=1` / `MALLOC_ARENA_MAX=2` in `render.yaml`. Measured locally (one process, same request sequence including broad, concurrent and dashboard requests): steady state ~208 MB, **peak 487 MB → 300 MB**. Earlier, with onnxruntime defaults, RSS had reached 849 MB after six reranks; the arena is disabled (`app/retrieval/rerank.py`). Linux RSS should be of the same order. Check Render's Metrics → Memory after deploying.
+Fix (D-034): `RERANK_BATCH_SIZE=4`, `--workers 1`, and `OMP_NUM_THREADS=1` / `OPENBLAS_NUM_THREADS=1` / `MALLOC_ARENA_MAX=2` in `render.yaml`. A broad question still exceeded the limit on Linux, so `render.yaml` also fixes glibc's allocator thresholds (`MALLOC_MMAP_THRESHOLD_` / `MALLOC_TRIM_THRESHOLD_` = 131072, D-035). Large transient reranker tensors are then returned to the OS instead of being retained. Measured locally (one process, same request sequence including broad, concurrent and dashboard requests): steady state ~208 MB, **peak 487 MB → 300 MB**. Earlier, with onnxruntime defaults, RSS had reached 849 MB after six reranks; the arena is disabled (`app/retrieval/rerank.py`). Linux RSS should be of the same order. Check Render's Metrics → Memory after deploying.
 
 ## Security & privacy
 

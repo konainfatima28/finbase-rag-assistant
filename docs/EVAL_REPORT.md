@@ -133,6 +133,7 @@ The cache and the gate still skip the LLM call entirely. The uncached-answer and
 Notes on the table:
 - Metric definitions changed between runs 1 and 3 (see §4.2), so compare the system changes in §4.1 through their item-level effects.
 - The Phase 1 iteration runs were kept as an honest record. They show regressions that were found and fixed before the Phase 1 final run (§4.1, items 12–15).
+- **Where the files are:** the final run, the Phase 1 final run and the pre-review baseline are in `eval/results/` (shown in the `/eval` run comparison). The historical development runs in this table (runs 1–4 and the Phase 1 iterations) and the earlier 24-question demo run are preserved under `eval/results/history/`.
 
 ### 4.1 System defects found and fixed
 

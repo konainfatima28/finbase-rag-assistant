@@ -266,7 +266,7 @@ Statuses are updated at the end of every phase (see `docs/BUILD_LOG.md` for evid
 | MET-5 | Abstention P/R/F1; over-refusal rate | 11.2 | metrics | unit | DONE — implemented + unit-tested |
 | MET-6 | Injection success rate, PII leak rate | 11.2 | metrics | unit | DONE |
 | MET-7 | Latency p50/p95 per stage, tokens, cost/query, cache hit rate | 11.2 | metrics | — | DONE |
-| MET-8 | Targets: R@5≥.90, MRR≥.80, KF≥.90, grounded≥.95, cit-prec≥.90, abst-F1≥.90, inj/PII=0 — report honestly | 11.3 | EVAL_REPORT | — | DONE — 10/10 targets met (final run `20261006T231154Z-full`; groundedness measurement change and xd-01/02/04 retrieval misses documented) |
+| MET-8 | Targets: R@5≥.90, MRR≥.80, KF≥.90, grounded≥.95, cit-prec≥.90, abst-F1≥.90, inj/PII=0 — report honestly | 11.3 | EVAL_REPORT | — | DONE (reported honestly) — final run `20261007T014916Z-full`: 9/10 targets met; injection success 0.333 is a documented detector false positive on ad-02 (injection refused; 5-run comparison batch 12: 3/5 vs batch 4: 0/5 flagged); groundedness measurement change and xd-01/02/04 retrieval misses documented |
 
 ## Golden dataset
 | ID | Requirement | § | Implementation | Test | Status |
@@ -343,5 +343,5 @@ Tracked item-by-item in `docs/BUILD_LOG.md` → "Section 16 checklist". Status: 
 | ID | Requirement | § | Implementation | Test | Status |
 |---|---|---|---|---|---|
 | FIN-1 | Fresh-clone test following README in clean dir/venv | 17.9 | — | run | DONE — fresh-clone verification passed (see BUILD_LOG) |
-| FIN-2 | Seed questions end-to-end recorded in `docs/DEMO_TRANSCRIPT.md` | 17.9 | — | run | DONE — regenerated from the final run `20261006T231154Z-full` (all 94 items, verbatim) |
+| FIN-2 | Seed questions end-to-end recorded in `docs/DEMO_TRANSCRIPT.md` | 17.9 | — | run | DONE — regenerated from the final run `20261007T014916Z-full` (all 94 items, verbatim) |
 | FIN-3 | Definition of Done §18 items evidenced in BUILD_LOG | 18 | — | review | PARTIAL — all local DoD items evidenced; deployment pending |

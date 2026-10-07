@@ -12,6 +12,7 @@ router_boost: 1.15
 faq_weight: 0.95
 reranker: flashrank
 reranker_model: ms-marco-MiniLM-L-12-v2
+rerank_batch_size: 4
 # Broad questions -> sub-queries (multi-query retrieval)
 max_subqueries: 3
 subquery_rerank_top_n: 8

@@ -482,3 +482,39 @@ Phase 1 evaluation baseline: unaffected. No retrieval, generation or evidence lo
 **Known limitations:** source chips truncate long labels on narrow screens (full label in the tooltip, accessible name and drawer). The model's own prose may still repeat what a notice says (e.g. "the daily limit is incomplete"). The latency regression and the xd-01/02/04 retrieval misses remain open, as documented.
 
 **Gate: Phase 3 PASS.**
+
+---
+
+## Deployment fix — Render out-of-memory (D-034, 2026-10-07)
+
+**Observed on Render (free tier, 512 MB):** `/api/health` OK, and `/api/chat` returned 200 with grounded citations. Render Events then repeatedly reported "Instance failed — Ran out of memory (used over 512MB)".
+
+**Investigation (measured locally, one uvicorn process, real index, reranker and OpenAI calls):**
+- import footprint 82 MB; after startup ~172 MB; steady state ~208 MB;
+- per stage: query embedding +6 MB; eval endpoints +2 MB; caches ~69 KB per request (bounded);
+- **reranker: +90 MB on typical candidates, +317 MB on the 12 longest chunks.** FlashRank scores all candidates in one batch padded to the longest passage;
+- under a realistic request sequence the process peaked at **487 MB**;
+- the start command had no `--workers`, so uvicorn takes `$WEB_CONCURRENCY`, which Render sets for new services (several full app copies).
+
+**Changes:**
+- `app/retrieval/rerank.py`: batched scoring (`RERANK_BATCH_SIZE`, default 4), with scores mapped back by passage id;
+- the setting in `app/settings.py`, `config/settings.yaml`, `.env.example` and the README table, passed in `app/api/services.py` and `eval/run.py`;
+- `render.yaml`: `--workers 1`, `OMP_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1`, `MALLOC_ARENA_MAX=2`;
+- `backend/Dockerfile`: `--workers 1`;
+- tests: 5 new unit tests in `tests/unit/test_retrieval_parts.py`. The fake ranker returns results sorted by score, and the scores must still align with the original passages for batch sizes 4, 3, 12 and 1; also the setting wiring and the minimum batch size.
+
+| check | result |
+|---|---|
+| backend `pytest` | **338 passed** (333 before), coverage 94% |
+| `ruff check` / `ruff format --check` / `mypy` (strict) | pass / 90 files formatted / no issues in 71 files |
+| offline retrieval eval (`python -m eval.run --retrieval-only`, 0 API calls) | recall@5 0.9821, MRR **0.9409**, nDCG@10 **0.9496**, hit@1 0.8929 (batch 12 before: 0.9821 / 0.9369 / 0.9488 / 0.8810) |
+| local memory, same request sequence | steady ~208 MB; **peak 487 MB → 300 MB** |
+| full real-OpenAI eval `20261007T014916Z-full` (new final run; also `latest.json`) | recall@5 0.982, MRR 0.941, nDCG@10 0.950, key-fact recall 1.000, groundedness 0.976, citation P/R 0.968/0.994, abstention F1 1.000, over-refusal 0, PII leak 0, **injection 0.333 (ad-02, detector false positive)**, judge 1.82, p50 3.2 s / p95 6.3 s, $0.0009/query |
+| ad-02, 5 runs per setting | batch 12: 3/5 flagged; batch 4: 0/5 flagged; all 10 answers refused the 0% claim and gave 3% + 18% GST |
+
+Failed items in the final run:
+- ad-02: the detector false positive above (reported as measured; the detector was not changed);
+- xd-01, xd-02, xd-04: the known retrieval-only cross-document misses (answers pass).
+
+The previous final run `20261006T231154Z-full` stays in `eval/results/` for comparison. To do after pushing: confirm on Render's Metrics → Memory that the instance stays below 512 MB across several `/api/chat` calls, including a broad question.
+

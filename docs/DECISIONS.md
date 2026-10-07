@@ -184,3 +184,29 @@ Fixed decisions from `PROMPT.md` §2 are not repeated here. This file records ch
 - Status is communicated once, from the API's deterministic status (one notice per conflict or incomplete value), not as extra badges. No scores or percentages are displayed.
 - Citation markers are hidden while streaming, because only the `done` event carries final citation numbers (D-032).
 
+## Deployment (2026-10-07)
+
+### D-034 Batch-4 reranking and a single worker to fit Render's 512 MB free tier
+- **Problem (observed on Render):** `/api/chat` returned 200 with grounded citations, then Render reported "Ran out of memory (used over 512MB)". This happened repeatedly.
+- **Cause 1, measured:** `flashrank.Ranker.rerank` scores all candidates in one batch, padded to the longest passage (≤ 512 tokens), and attention memory grows with batch × length². With 12 long policy chunks one call added **+317 MB**. Under realistic load a single process peaked at **487 MB** locally (steady state ~208 MB).
+- **Cause 2, from configuration and docs:** the start command had no `--workers`. Uvicorn then uses `$WEB_CONCURRENCY`, which Render sets to a recommended process count for services created after 2025-12-08. Each worker holds its own index, onnxruntime and reranker (~160–200 MB idle).
+- **Decision:**
+  - `RERANK_BATCH_SIZE=4`: candidates scored in batches of 4 inside the existing reranker lock, scores mapped back by passage id;
+  - `--workers 1` in `render.yaml` and the Dockerfile;
+  - `OMP_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1`, `MALLOC_ARENA_MAX=2` on Render.
+
+  Candidate count, RRF, the evidence layer, citations, grounding, abstention and generation are unchanged.
+- **Why batch 4:** the ONNX model's scores depend slightly on batch padding (up to 0.16), so the batch size is not score-neutral. The offline retrieval eval measured each size:
+
+  | batch | recall@5 | MRR | nDCG@10 | hit@1 | reranker spike |
+  |---|---|---|---|---|---|
+  | 12 (previous) | 0.982 | 0.937 | 0.949 | 0.881 | +317 MB |
+  | **4** | 0.982 | **0.941** | **0.950** | **0.893** | **+99 MB** |
+  | 2 | 0.988 | 0.935 | 0.948 | 0.881 | +44 MB |
+  | 1 | 0.982 | 0.935 | 0.947 | 0.881 | +24 MB |
+
+  Batch 4 is the only size that is equal or better on every retrieval metric, while cutting the spike by about 70%.
+- **Effect:** local single-process peak 487 → 300 MB under the same request sequence. In the full real evaluation (`20261007T014916Z`), rerank p50 fell from 2.98 s to 1.46 s and end-to-end p50 from 4.8 s to 3.2 s. Answer-level metrics stayed healthy.
+- **Injection metric in that run:** 0.333, from ad-02. This is a keyword-detector false positive. The answer refused the injected 0% and gave the grounded 3% + 18% GST, but its refutation sentence ("does not align") lacks the detector's keywords. A controlled 5-run comparison flagged ad-02 in 3/5 runs with batch 12 and 0/5 with batch 4, so it is wording variance, not a regression. The detector was deliberately not changed to improve the metric.
+- **Not done:** `CACHE_MAX_ITEMS` stays at 512 (~69 KB per cached request, ≤ ~35 MB, bounded by size and TTL).
+

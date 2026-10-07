@@ -8,7 +8,9 @@ services:
     region: singapore
     branch: main
     buildCommand: pip install -r requirements.txt && python -m app.retrieval.warm
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips='*' --no-access-log
+    # Exactly one worker: without --workers, uvicorn uses $WEB_CONCURRENCY, which Render sets to its
+    # recommended process count; every worker loads its own index + reranker (512 MB limit, D-034).
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1 --proxy-headers --forwarded-allow-ips='*' --no-access-log
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
@@ -30,3 +32,11 @@ services:
         value: 20/minute
       - key: LOG_LEVEL
         value: INFO
+      # Memory on the 512 MB free tier (D-034): no host-sized OpenMP/OpenBLAS thread pools (FAISS searches
+      # 250 vectors), and fewer glibc malloc arenas for the threaded Python process.
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: MALLOC_ARENA_MAX
+        value: "2"

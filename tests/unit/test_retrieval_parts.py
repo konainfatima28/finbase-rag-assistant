@@ -219,3 +219,43 @@ def test_flashrank_real_model_from_local_cache() -> None:
         ],
     )
     assert scores is not None and scores[1] > 0.5 > scores[0]
+
+
+class _SortingFakeRanker:
+    """Mimics flashrank.Ranker.rerank: results come back SORTED by score, not in input order."""
+
+    def __init__(self) -> None:
+        self.batch_sizes: list[int] = []
+
+    def rerank(self, request: object) -> list[dict[str, object]]:
+        passages = request.passages  # type: ignore[attr-defined]
+        self.batch_sizes.append(len(passages))
+        scored = [
+            {"id": p["id"], "text": p["text"], "score": float(p["text"].split(":")[1]) / 100}
+            for p in passages
+        ]
+        return sorted(scored, key=lambda r: -float(r["score"]))  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    ("batch_size", "expected_batches"), [(4, [4, 4, 2]), (3, [3, 3, 3, 1]), (12, [10]), (1, [1] * 10)]
+)
+def test_batched_rerank_scores_align_with_original_passages(
+    tmp_path: Path, batch_size: int, expected_batches: list[int]
+) -> None:
+    """D-034: candidates are scored in batches; every score must land on its own passage, in input order."""
+    reranker = FlashRankReranker("m", tmp_path, batch_size=batch_size)
+    fake = _SortingFakeRanker()
+    reranker._ranker = fake  # loaded model stand-in (no download)
+    values = [37, 5, 91, 12, 64, 3, 88, 49, 20, 76]  # deliberately unsorted
+    passages = [f"p{i}:{v}" for i, v in enumerate(values)]
+    scores = reranker.score("q", passages)
+    assert scores == [v / 100 for v in values]
+    assert fake.batch_sizes == expected_batches
+
+
+def test_rerank_batch_size_setting_reaches_the_reranker(tmp_path: Path) -> None:
+    assert Settings().rerank_batch_size == 4
+    reranker = make_reranker("flashrank", "m", tmp_path, batch_size=4)
+    assert isinstance(reranker, FlashRankReranker) and reranker.batch_size == 4
+    assert FlashRankReranker("m", tmp_path, batch_size=0).batch_size == 1  # never a zero-size batch

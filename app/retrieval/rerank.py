@@ -49,14 +49,21 @@ def _bounded_session(session: Any, threads: int) -> Any:
 
 
 class FlashRankReranker:
-    """FlashRank cross-encoder (ONNX, no torch). Loads lazily; failure degrades to fused order."""
+    """FlashRank cross-encoder (ONNX, no torch). Loads lazily; failure degrades to fused order.
+
+    Candidates are scored in batches of `batch_size` (DECISIONS D-034). FlashRank pads a batch to its longest
+    passage (up to 512 tokens), and attention memory grows with batch x length^2: scoring 12 long policy chunks
+    at once peaked at +317 MB, which exceeded Render's 512 MB. Batches of 4 peak at about +99 MB, and the offline
+    retrieval eval is equal or better on every metric (the ONNX model's scores depend slightly on batch padding).
+    """
 
     name = "flashrank"
 
-    def __init__(self, model_name: str, cache_dir: Path, threads: int = 2) -> None:
+    def __init__(self, model_name: str, cache_dir: Path, threads: int = 2, batch_size: int = 4) -> None:
         self.model_name = model_name
         self.cache_dir = cache_dir
         self.threads = threads
+        self.batch_size = max(1, batch_size)
         self._ranker: Any = None
         self._failed = False
         self._lock = threading.Lock()
@@ -84,26 +91,29 @@ class FlashRankReranker:
         return self._ranker is not None
 
     def score(self, query: str, passages: Sequence[str]) -> list[float] | None:
-        """Cross-encoder scores aligned with `passages`."""
+        """Cross-encoder scores aligned with `passages` (scored in batches of `batch_size`)."""
         if not passages or not self.load():
             return None
         from flashrank import RerankRequest
 
-        request = RerankRequest(query=query, passages=[{"id": i, "text": p} for i, p in enumerate(passages)])
+        scores = [0.0] * len(passages)
         try:
             with self._lock:  # onnxruntime session is shared; keep calls serialised
-                results = self._ranker.rerank(request)
+                for start in range(0, len(passages), self.batch_size):
+                    batch = passages[start : start + self.batch_size]
+                    request = RerankRequest(
+                        query=query, passages=[{"id": start + i, "text": p} for i, p in enumerate(batch)]
+                    )
+                    for item in self._ranker.rerank(request):  # results come back sorted by score
+                        scores[int(item["id"])] = float(item["score"])
         except Exception as exc:
             log.warning("rerank_failed", error=str(exc))
             return None
-        scores = [0.0] * len(passages)
-        for item in results:
-            scores[int(item["id"])] = float(item["score"])
         return scores
 
 
-def make_reranker(kind: str, model_name: str, cache_dir: Path) -> Reranker:
-    """Factory from settings (`RERANKER=flashrank|none`)."""
+def make_reranker(kind: str, model_name: str, cache_dir: Path, batch_size: int = 4) -> Reranker:
+    """Factory from settings (`RERANKER=flashrank|none`, `RERANK_BATCH_SIZE`)."""
     if kind == "flashrank":
-        return FlashRankReranker(model_name, cache_dir)
+        return FlashRankReranker(model_name, cache_dir, batch_size=batch_size)
     return NoneReranker()

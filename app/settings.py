@@ -77,6 +77,8 @@ class Settings(BaseSettings):
     faq_weight: float = 0.95
     reranker: Literal["flashrank", "none"] = "flashrank"
     reranker_model: str = "ms-marco-MiniLM-L-12-v2"
+    # passages per reranker forward pass (memory: batch x length^2; D-034)
+    rerank_batch_size: int = 4
     # broad questions: up to `max_subqueries` sub-queries (from the rewrite call), merged before assembly
     max_subqueries: int = 3
     subquery_rerank_top_n: int = 8

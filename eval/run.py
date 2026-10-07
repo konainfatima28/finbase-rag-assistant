@@ -117,7 +117,10 @@ def evaluate_targets(summary: dict[str, Any]) -> list[dict[str, Any]]:
 
 def build_retriever(settings: Settings, store: IndexStore, embedder: EmbeddingProvider) -> Retriever:
     reranker = make_reranker(
-        settings.reranker, settings.reranker_model, settings.path(settings.cache_dir) / "flashrank"
+        settings.reranker,
+        settings.reranker_model,
+        settings.path(settings.cache_dir) / "flashrank",
+        settings.rerank_batch_size,
     )
     if isinstance(reranker, FlashRankReranker):
         reranker.load()

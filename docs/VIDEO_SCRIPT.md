@@ -1,6 +1,6 @@
 # 5-minute video script (≤ 4:45 spoken)
 
-Speaking pace ≈ 150 words/min. All numbers below come from the final evaluation run `20261006T231154Z-full` (`eval/results/latest.json`, `docs/EVAL_REPORT.md`).
+Speaking pace ≈ 150 words/min. All numbers below come from the final evaluation run `20261007T014916Z-full` (`eval/results/latest.json`, `docs/EVAL_REPORT.md`).
 
 | time | segment | on screen | say |
 |---|---|---|---|
@@ -11,10 +11,10 @@ Speaking pace ≈ 150 words/min. All numbers below come from the final evaluatio
 | 2:20–2:45 | **Models** | `.env.example`, D-011/D-012 | "OpenAI for everything model-related, in development and production: text-embedding-3-small and gpt-4.1-mini, chosen because it honours temperature zero for reproducible evaluation. Retrieval stays local. The index manifest pins the embedder, and the API refuses to start if the configured model doesn't match." |
 | 2:45–3:15 | **Retrieval** | `/eval` retrieval and ablation charts | "Dense and BM25 are fused with RRF, boilerplate is down-weighted, a router adds a soft boost but never filters, and FlashRank reranks. Conflicting sections found by the audit are always retrieved together. A calibrated gate abstains before the LLM when confidence is low. Hybrid plus rerank reaches recall at 5 of 0.98 and MRR 0.94, better than dense or BM25 alone." |
 | 3:15–3:40 | **Prompt + hallucination control** | `prompts/answer_system.txt`, an answer with a source chip | "The prompt allows only numbered context blocks, requires a citation per sentence and a NOT_FOUND sentinel. Then code takes over: an uncited answer becomes a refusal, every figure is checked against the cited text, a truncated amount is never shown as a number, conflicts are detected in code with both values shown, and a fee asked for one product is never answered with another product's figure. Sources are de-duplicated into one numbered item per section." |
-| 3:40–4:05 | **Evaluation** | `/eval` dashboard | "94 hand-verified golden questions across nine categories, including conflicts, absent information, Hinglish and attacks. Key-fact recall is 1.0, judged groundedness 0.98, citation precision 0.97, abstention F1 1.0 with zero over-refusal, and injection and PII-leak rates are zero. The three remaining misses are cross-document ranking cases where the answers are still correct. A question costs under a tenth of a cent; median latency is about 4.8 seconds, mostly the CPU reranker — a known trade-off I'd optimise next." |
+| 3:40–4:05 | **Evaluation** | `/eval` dashboard | "94 hand-verified golden questions across nine categories, including conflicts, absent information, Hinglish and attacks. Key-fact recall is 1.0, judged groundedness 0.98, citation precision 0.97, abstention F1 1.0 with zero over-refusal, and zero PII leaks. One injection item was flagged by the keyword detector even though the assistant refused it and gave the real 3% — I report that as measured rather than tuning the detector. The three retrieval misses are cross-document ranking cases where the answers are still correct. A question costs under a tenth of a cent; median latency is about 3.2 seconds after batching the reranker to fit Render's 512 MB." |
 | 4:05–4:20 | **Trade-offs** | `docs/DECISIONS.md` | "Exact FAISS instead of a vector database because there are only 250 vectors; my own small orchestration instead of LangChain for control; safety decisions in code rather than trusting the model; and accuracy over latency for the reranker." |
 | 4:20–4:45 | **Live demo** | Vercel app | Type the demo questions below; open the evidence drawer on the first answer. |
-| 4:45–5:00 | **Improvements** | README last section | "Next: bring the reranking latency down, fix the cross-document ranking, and add a held-out evaluation set with a second judge model." |
+| 4:45–5:00 | **Improvements** | README last section | "Next: fix the cross-document ranking, make the injection detector robust to paraphrased refusals, and add a held-out evaluation set with a second judge model." |
 
 ## Demo questions (type exactly)
 

@@ -60,7 +60,10 @@ def build_services(
     store = IndexStore.load(settings.index_dir, settings)
     gate = GateConfig.from_dict(settings.load_thresholds())
     reranker = reranker or make_reranker(
-        settings.reranker, settings.reranker_model, settings.path(settings.cache_dir) / "flashrank"
+        settings.reranker,
+        settings.reranker_model,
+        settings.path(settings.cache_dir) / "flashrank",
+        settings.rerank_batch_size,
     )
     if isinstance(reranker, FlashRankReranker):
         reranker.load()  # warm at startup; failure degrades to fused order (logged)

@@ -40,6 +40,15 @@ BROAD = re.compile(
     r"difference between)\b",
     re.I,
 )
+#: "what/which <category> do you have / can I get / does FinBase offer" / "tell me about your <category>" --
+#: a request to enumerate a product category's variants, never a request for one specific fact. Matched by
+#: question SHAPE, not by any product name, so it applies equally to cards, accounts, loans, UPI, FD, KYC, ...
+CATEGORY_ENUMERATION = re.compile(
+    r"\b(?:what|which)\b.{0,40}\b(?:kinds?|types?|sorts?|variants?|options?)\b"
+    r"|\b(?:what|which)\b.{0,40}\b(?:do|does|can)\b.{0,20}\b(?:you|we|i)\b.{0,20}\b(?:have|offer|get|provide|available)\b"
+    r"|\btell me about\b.{0,30}\b(?:your|the)\b",
+    re.I,
+)
 #: common English words (function words, question words, everyday verbs) — the corpus adds domain words
 COMMON_ENGLISH = frozenset(
     [
@@ -332,11 +341,25 @@ def is_broad(text: str) -> bool:
     return bool(BROAD.search(text))
 
 
+def is_category_enumeration(text: str) -> bool:
+    """'What kinds/types of X do you have/offer?' / 'tell me about your X': a request to enumerate a
+    category's variants. Deliberately kept separate from `is_broad`: it never grants sub-queries, only
+    normalizes the main query's wording -- the single calibrated abstain gate still decides, on this one
+    query, whether the category exists in the knowledge base."""
+    return bool(CATEGORY_ENUMERATION.search(text))
+
+
 def needs_rewrite(
     message: str, history: Sequence[ChatMessage], vocabulary: frozenset[str] = frozenset()
 ) -> bool:
-    """Follow-ups, anything not confidently plain English, and broad questions."""
-    return bool(history) or not is_plain_english(message, vocabulary) or is_broad(message)
+    """Follow-ups, anything not confidently plain English, broad questions, and category-enumeration
+    questions (wording normalized so retrieval/the gate see KB-aligned phrasing)."""
+    return (
+        bool(history)
+        or not is_plain_english(message, vocabulary)
+        or is_broad(message)
+        or is_category_enumeration(message)
+    )
 
 
 def _history_text(history: Sequence[ChatMessage], turns: int = 4) -> str:
@@ -386,7 +409,7 @@ async def rewrite_query(
         lang = str(data.get("language", language)).strip() or language
         if not query:
             raise ValueError("empty standalone_query_en")
-        if plain_english and not history:
+        if plain_english and not history and not is_category_enumeration(message):
             query, lang = message, "en"  # clear English is used verbatim, never paraphrased
         broad = is_broad(message) or is_broad(query)
         subqueries = _clean_subqueries(data.get("subqueries"), max_subqueries) if broad else []

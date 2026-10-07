@@ -23,6 +23,7 @@ MINIMUMS = {
     "adversarial": 4,
     "garbled": 2,
     "hinglish": 3,
+    "category_enumeration": 6,
 }
 REQUIRED_FIELDS = ("id", "category", "question", "answerable", "expected_facts", "gold_sections", "notes")
 

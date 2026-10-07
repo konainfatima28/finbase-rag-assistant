@@ -13,6 +13,7 @@ from app.generation.rewrite import (
     corpus_vocabulary,
     detect_language,
     is_broad,
+    is_category_enumeration,
     is_plain_english,
     needs_rewrite,
     rewrite_query,
@@ -296,6 +297,47 @@ async def test_clear_english_is_never_paraphrased() -> None:
         "OVD documents",
         "Video KYC",
     ]  # capped at 3
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "What cards do you have?",
+        "Which cards can I get?",
+        "Tell me about your cards",
+        "What kind of loans are available?",
+        "What savings accounts do you offer?",
+        "What types of fixed deposits does FinBase offer?",
+    ],
+)
+def test_category_enumeration_detected(message: str) -> None:
+    assert is_category_enumeration(message)
+    assert needs_rewrite(message, [], VOCAB)  # plain English, no history, but still rewritten
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "What is the foreclosure charge?",
+        "What is FinBase's home loan interest rate?",
+        "What is the value of one credit card reward point when I redeem it?",
+        "What are the requirements for opening a savings account?",  # already handled by is_broad
+    ],
+)
+def test_category_enumeration_not_overtriggered(message: str) -> None:
+    assert not is_category_enumeration(message)
+
+
+async def test_category_enumeration_is_rewritten_even_when_plain_english() -> None:
+    """Unlike an ordinary plain-English question, a category-enumeration question is NOT reverted to the
+    raw colloquial text: the gate decision still runs on one single (normalized) query, no sub-queries."""
+    llm = _translator("What types of cards does FinBase offer?", "en", ["card eligibility", "card fees"])
+    out = await rewrite_query(
+        llm, "SYS", "What cards do you have?", [], model=None, timeout_s=5, vocabulary=VOCAB
+    )
+    assert out.used_llm and len(llm.calls) == 1
+    assert out.query == "What types of cards does FinBase offer?"
+    assert out.subqueries == []  # is_broad() is untouched: enumeration alone never grants sub-queries
 
 
 async def test_subqueries_ignored_for_narrow_questions() -> None:

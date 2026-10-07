@@ -17,7 +17,7 @@ from typing import Any
 
 from app.generation.verifier import extract_figures
 from app.ingest.models import Chunk
-from app.retrieval.context import ConflictGroup, conflict_kind, display_text
+from app.retrieval.context import Candidate, ConflictGroup, conflict_kind, display_text
 from app.text.numbers import find_malformed_amounts
 
 UNCLEAR_VALUE = "unclear_value"
@@ -351,6 +351,118 @@ _AMOUNT_QUESTION = re.compile(
 def named_products(text: str) -> set[str]:
     """Documents whose product the text names explicitly ('UPI AutoPay' -> payments_upi)."""
     return {doc for doc, pattern in PRODUCT_TERMS.items() if pattern.search(text)}
+
+
+#: an existence claim with FinBase as the explicit subject ("FinBase does not offer/provide/support X") --
+#: deliberately NOT "have", which collides with ordinary feature-level sentences ("FinBase does not have a
+#: minimum balance requirement"); deliberately requires the literal subject "FinBase", so a claim about one
+#: specific product ("this loan does not have a processing fee") never matches at all.
+_STOP = r"(?=[.,;:]|\s*\[|\s+(?:to|for|as|in|on|under|via|which|that|and)\b|$)"
+_NEGATIVE_EXISTENCE = re.compile(
+    r"\bFinBase\s+(?:currently\s+)?(?:does not|doesn't|do not|don't)\s+(?:currently\s+)?"
+    r"(?:offer|provide|support)\s+([a-z][a-z /&-]{1,60}?)" + _STOP,
+    re.I,
+)
+#: Deliberately no passive-voice mirror ("X is not available/offered"): that phrasing is also exactly how
+#: the system is supposed to word a legitimate partial-answer disclosure (prompt rule 4, "state what is
+#: not available in the knowledge base" -- e.g. "the international POS fee for the savings debit card is
+#: not available in FinBase's documents"), so matching it on subject shape alone is not reliable enough to
+#: tell a missing FACT from a missing PRODUCT/CATEGORY; the active form below, anchored to the literal
+#: subject "FinBase", does not have that ambiguity.
+#: the KIND of sentence that can actually ground an existence claim (an explicit negation/exclusion),
+#: as opposed to a sentence that merely fails to mention the category
+_EXCLUSION_WORDING = re.compile(
+    r"\b(?:does|do)n't\b.{0,20}\b(?:offer|provide|support)\b|"
+    r"\b(?:does|do)\s+not\b.{0,20}\b(?:offer|provide|support)\b|"
+    r"\b(?:is|are)n't\b.{0,20}\b(?:offered|provided|supported|available)\b|"
+    r"\b(?:is|are)\s+not\b.{0,20}\b(?:offered|provided|supported|available)\b|"
+    r"\bnot\s+(?:offered|supported|available|provided)\b|\bunsupported\b|\bunavailable\b|"
+    r"\bstrictly\s+(?:not|prohibited)\b|\bno longer\s+(?:offer|support)\b",
+    re.I,
+)
+#: wrapper words that would otherwise trivially "match" almost any document (never the discriminating word)
+_CLAIM_FILLER = frozenset(
+    [
+        "this",
+        "that",
+        "these",
+        "those",
+        "any",
+        "such",
+        "the",
+        "and",
+        "for",
+        "with",
+        "from",
+        "your",
+        "our",
+        "their",
+        "its",
+        "services",
+        "service",
+        "products",
+        "product",
+        "options",
+        "option",
+        "finbase",
+        "offer",
+        "offers",
+        "offering",
+        "provide",
+        "provides",
+        "support",
+        "supports",
+        "currently",
+    ]
+)
+
+
+def _claim_terms(phrase: str) -> set[str]:
+    """Specific words of a claimed category/product name. No length-4 floor: 'car' must survive, unlike
+    `words()` above which is tuned for table-row identification and drops short/product words on purpose."""
+    return {w for w in re.findall(r"[a-z]{3,}", phrase.lower()) if w not in _CLAIM_FILLER}
+
+
+def _chunk_covers(terms: set[str], text: str) -> bool:
+    """Every term appears in `text` (exact token or shared 5-letter stem)."""
+    tokens = set(re.findall(r"[a-z]{3,}", text.lower()))
+    return bool(terms) and all(
+        t in tokens or any(len(t) >= 5 and x[:5] == t[:5] for x in tokens) for t in terms
+    )
+
+
+def unsupported_negative_claims(answer: str, blocks: Sequence[Candidate]) -> list[str]:
+    """Negative-existence claims ('FinBase does not offer X' / 'X is not offered') whose OWN cited block(s)
+    never actually state that X is unavailable: an inference from a related product's silence, not a
+    grounded fact (the model is never allowed to conclude absence merely because CONTEXT doesn't mention
+    something). General by construction: the claimed category/product is read from the model's own
+    sentence, never from a hardcoded product or category list, so this applies equally to every product.
+    A genuine, explicitly-stated exclusion (e.g. the KB's own 'FinBase does NOT provide cryptocurrency
+    trading' passage) passes, because that same wording is what `_EXCLUSION_WORDING` looks for in the
+    cited block's own text."""
+    chunks = [b.chunk for b in blocks]
+    # Candidate support comes from every block cited ANYWHERE in the answer, not just the claim's own
+    # sentence: a model routinely writes the claim and its citation as two sentences ("No, FinBase does
+    # NOT offer X. This is explicitly stated in the policy [1]."). This is safe because a block is only
+    # ever counted as support when its OWN text both names the claimed category/product (`_chunk_covers`,
+    # every specific word of the claim) AND states an explicit exclusion (`_EXCLUSION_WORDING`) -- an
+    # unrelated citation elsewhere in the answer essentially never satisfies both at once.
+    all_numbers = {int(n) for n in re.findall(r"\[(\d{1,2})\]", answer) if 1 <= int(n) <= len(chunks)}
+    cited = [chunks[n - 1] for n in all_numbers]
+    unsupported: list[str] = []
+    for sentence in re.split(r"(?<=[.!?])\s+|\n+", answer):
+        match = _NEGATIVE_EXISTENCE.search(sentence)
+        if not match:
+            continue
+        terms = _claim_terms(match.group(1))
+        if not terms:
+            continue
+        supported = any(
+            _chunk_covers(terms, c.embed_text) and _EXCLUSION_WORDING.search(c.embed_text) for c in cited
+        )
+        if not supported:
+            unsupported.append(match.group(1).strip())
+    return unsupported
 
 
 def out_of_scope_amounts(question: str, answer: str, cited: Sequence[Chunk]) -> list[str]:

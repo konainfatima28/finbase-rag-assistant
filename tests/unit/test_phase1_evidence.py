@@ -316,3 +316,68 @@ def test_out_of_scope_amounts() -> None:
     upi_fee = ch("u2", "Compensation: ₹100 per day beyond T+1", doc="payments_upi", section="2")
     answer = "₹100 per day [2]; loans charge ₹500 [1]."
     assert out_of_scope_amounts("How much is the UPI fee?", answer, [loans, upi_fee]) == []
+
+
+# --- unsupported negative-existence claims: never infer absence merely from silence ----------------
+def test_unsupported_negative_existence_claim_forced_to_abstain() -> None:
+    """'FinBase does not offer X' citing a RELATED but silent product is not a grounded fact."""
+    from app.generation.evidence import unsupported_negative_claims
+
+    personal_loans = ch(
+        "pl1",
+        "FinBase offers personal loan facilities structured into standardized quantum bands.",
+        section="1",
+    )
+    answer = (
+        "FinBase offers personal loans with various tenures [1]. "
+        "Therefore, based on the available information, FinBase does not offer car loans."
+    )
+    assert unsupported_negative_claims(answer, [Candidate(0, personal_loans)]) == ["car loans"]
+    # the same claim, even if (wrongly) cited against a block that never mentions "car", is still unsupported
+    cited = "FinBase does not offer car loans [1]."
+    assert unsupported_negative_claims(cited, [Candidate(0, personal_loans)]) == ["car loans"]
+
+
+def test_legitimate_missing_fact_disclosure_is_never_matched() -> None:
+    """'X is not available in FinBase's documents' is the system's OWN prompt-mandated wording for a
+    partial-answer disclosure (rule 4): a missing FACT, not a missing PRODUCT/CATEGORY. There is
+    deliberately no passive-voice pattern, precisely to avoid flagging sentences like this one."""
+    from app.generation.evidence import unsupported_negative_claims
+
+    savings = ch(
+        "sv1",
+        "The Digital Savings Account has no minimum balance requirement.",
+        doc="savings_account",
+        section="1",
+    )
+    answer = (
+        "The Luxe credit card markup is 1.50% [1]. "
+        "The international POS fee for the savings debit card is not available in FinBase's documents."
+    )
+    assert unsupported_negative_claims(answer, [Candidate(0, savings)]) == []
+
+
+def test_genuine_explicit_exclusion_is_not_flagged() -> None:
+    """A real, cited, explicit exclusion in the KB's own wording is left alone."""
+    from app.generation.evidence import unsupported_negative_claims
+
+    exclusions = ch(
+        "fdw22",
+        "FinBase explicitly defines services that are strictly NOT offered: "
+        "FinBase does NOT provide cryptocurrency trading, Bitcoin/Ethereum wallets, "
+        "or virtual digital asset exchange facilities.",
+        doc="fd_wealth",
+        section="22",
+    )
+    answer = "FinBase does not offer cryptocurrency trading [1]."
+    assert unsupported_negative_claims(answer, [Candidate(0, exclusions)]) == []
+
+
+def test_feature_level_negation_is_never_matched() -> None:
+    """'This loan does not have a processing fee' is about a feature of an existing product, not a
+    company-level existence claim, and must never be touched by this check."""
+    from app.generation.evidence import unsupported_negative_claims
+
+    loans = ch("pl2", "This loan does not have a processing fee.", section="2")
+    answer = "This loan does not have a processing fee [1]."
+    assert unsupported_negative_claims(answer, [Candidate(0, loans)]) == []

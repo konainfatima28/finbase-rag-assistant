@@ -56,7 +56,7 @@ class Settings(BaseSettings):
     llm_timeout_s: float = 60.0
     llm_max_retries: int = 2
     rewrite_timeout_s: float = 15.0
-    prompt_version: str = "v3"
+    prompt_version: str = "v4"
 
     # --- ingestion --------------------------------------------------------------------------------
     chunk_max_tokens: int = 600

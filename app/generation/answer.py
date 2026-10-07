@@ -44,6 +44,7 @@ from app.generation.evidence import (
     relevant_conflicts,
     relevant_unclear,
     states_all_values,
+    unsupported_negative_claims,
     words,
 )
 from app.generation.prompts import NOT_FOUND, Prompts, build_messages, context_notes
@@ -575,6 +576,15 @@ class AnswerService:
             report = validate(answer, len(blocks))
         cited_now = [blocks[n - 1].chunk for n in report.valid] or chunks
         verification = verify(answer, cited_now, p.question, trust_question=not p.injection_hits)
+
+        # Negative-existence claims (decided in code): "FinBase does not offer X" is never inferred merely
+        # because CONTEXT is silent about X -- only an explicit, cited exclusion statement can support it.
+        if unsupported_negative_claims(answer, blocks):
+            log.info("unsupported_negative_claim", request_id=p.request_id)
+            result = self.not_found(p, "unsupported_negative_claim", usage, generate_ms)
+            result["related_sources"] = []
+            result["verification"]["warnings"] = ["unsupported_negative_claim"]
+            return result
 
         # Product scope (decided in code): a fee asked for one product, answered only with another product's
         # figure (UPI AutoPay bounce fee <- personal-loan EMI bounce fee), is not an answer.

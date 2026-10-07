@@ -568,6 +568,41 @@ async def test_ab02_loan_bounce_fee_not_given_for_upi_autopay(env: tuple[Setting
     assert ok["answerable"] and "₹500" in ok["answer"]
 
 
+# --- unsupported negative-existence claims: never infer absence merely from silence --------------------
+async def test_unsupported_negative_claim_forced_to_not_found(env: tuple[Settings, IndexStore]) -> None:
+    """'FinBase does not offer car loans' citing only (silent) personal-loan evidence is not a fact."""
+    svc, _ = service(
+        env, answer_citing("Section 1 Executive Summary", "FinBase does not offer car loans [{n}].")
+    )
+    result = await svc.answer("Does FinBase offer car loans?")
+    assert not result["answerable"] and result["abstain_reason"] == "unsupported_negative_claim"
+    assert result["answer"].startswith("I couldn't find this in FinBase's documents.")
+    assert result["sources"] == [] and result["related_sources"] == []
+
+
+async def test_genuine_explicit_exclusion_remains_answerable(env: tuple[Settings, IndexStore]) -> None:
+    """A real, cited, KB-stated exclusion (cryptocurrency) is not blocked by the new check."""
+    svc, _ = service(
+        env,
+        answer_citing(
+            "Section 22 Explicit Product Exclusions",
+            "FinBase does not offer cryptocurrency trading [{n}].",
+        ),
+    )
+    result = await svc.answer("Does FinBase offer cryptocurrency trading?")
+    assert result["answerable"] and "cryptocurrency" in result["answer"]
+    assert result["abstain_reason"] is None
+
+
+async def test_home_loan_yes_no_question_also_forced_to_not_found(env: tuple[Settings, IndexStore]) -> None:
+    """A second, different absent category: the check is general, not a car-loan special case."""
+    svc, _ = service(
+        env, answer_citing("Section 1 Executive Summary", "FinBase does not offer home loans [{n}].")
+    )
+    result = await svc.answer("Does FinBase offer home loans?")
+    assert not result["answerable"] and result["abstain_reason"] == "unsupported_negative_claim"
+
+
 # --- Phase 2: canonical evidence & citation contract ---------------------------------------------------------
 def assert_contract(result: dict[str, object]) -> None:
     """Invariants every answered response must satisfy."""

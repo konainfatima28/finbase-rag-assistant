@@ -1,0 +1,98 @@
+[
+  {
+    "doc_id": "personal_loans",
+    "category": "range_conflict",
+    "members": [
+      "21",
+      "4.2"
+    ],
+    "detail": "range starting ₹150 has different upper bounds ['350', '400']"
+  },
+  {
+    "doc_id": "credit_cards",
+    "category": "tax_wording_variance",
+    "members": [
+      "1.2",
+      "21"
+    ],
+    "detail": "₹999: GST stated as ['18% GST', 'GST']"
+  },
+  {
+    "doc_id": "credit_cards",
+    "category": "tax_wording_variance",
+    "members": [
+      "1.3",
+      "21"
+    ],
+    "detail": "₹4,999: GST stated as ['18% GST', 'GST']"
+  },
+  {
+    "doc_id": "credit_cards",
+    "category": "faq_body_period_mismatch",
+    "members": [
+      "FAQ:Q002",
+      "1.2"
+    ],
+    "detail": "Q002 says 'previous calendar year' but Section 1.2 says 'preceding membership year'"
+  },
+  {
+    "doc_id": "savings_account",
+    "category": "tax_wording_variance",
+    "members": [
+      "21",
+      "3"
+    ],
+    "detail": "₹21: GST stated as ['18% GST', 'GST']"
+  },
+  {
+    "doc_id": "savings_account",
+    "category": "faq_omits_condition",
+    "members": [
+      "FAQ:Q004",
+      "3"
+    ],
+    "detail": "Q004 states the 'metro' figure (3) but omits the non-metro case (5) given in Section 3"
+  },
+  {
+    "doc_id": "savings_account",
+    "category": "faq_absolute_claim_vs_bounded_table",
+    "members": [
+      "FAQ:Q010",
+      "21"
+    ],
+    "detail": "Q010 claims 'at any time' (absolute) but Section 21 rows are bounded"
+  },
+  {
+    "doc_id": "savings_account",
+    "category": "row_inconsistent_or_truncated",
+    "members": [
+      "4"
+    ],
+    "detail": "Section 4: daily '₹5,00,0' vs monthly cap '₹25,000'"
+  },
+  {
+    "doc_id": "savings_account",
+    "category": "row_inconsistent_or_truncated",
+    "members": [
+      "10"
+    ],
+    "detail": "Section 10: daily '₹5,00,0' vs monthly cap '₹25,000'"
+  },
+  {
+    "doc_id": "payments_upi",
+    "category": "scenario_dependent_sla",
+    "members": [
+      "2",
+      "21"
+    ],
+    "detail": "compensation trigger differs: T+['1', '2', '5']"
+  },
+  {
+    "doc_id": "fd_wealth",
+    "category": "overlapping_buckets",
+    "members": [
+      "1"
+    ],
+    "detail": "Section 1: '2 years to 3 years' and '3 years to 5 years' both include the boundary value"
+  }
+]

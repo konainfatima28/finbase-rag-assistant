@@ -1,0 +1,44 @@
+# Non-secret defaults. Every key can be overridden by the upper-case environment variable of the same name.
+# Retrieval (PROMPT.md §6)
+dense_k: 20
+bm25_k: 20
+rrf_k: 60
+rerank_top_n: 12
+final_k: 5
+context_token_budget: 2500
+boilerplate_weight: 0.6
+max_per_section: 2
+router_boost: 1.15
+faq_weight: 0.95
+reranker: flashrank
+reranker_model: ms-marco-MiniLM-L-12-v2
+# Broad questions -> sub-queries (multi-query retrieval)
+max_subqueries: 3
+subquery_rerank_top_n: 8
+multi_query_final_k: 8
+multi_query_token_budget: 3800
+
+# Chunking (PROMPT.md §5.3)
+chunk_max_tokens: 600
+chunk_target_tokens: 400
+chunk_overlap_ratio: 0.12
+embed_batch_size: 64
+
+# Generation (PROMPT.md §7)
+temperature: 0.0
+seed: 42
+max_tokens: 500
+llm_timeout_s: 60
+llm_max_retries: 2
+rewrite_timeout_s: 15
+prompt_version: v2
+
+# API (PROMPT.md §8)
+rate_limit: 20/minute
+max_message_chars: 2000
+history_max_messages: 6
+history_max_chars: 6000
+sse_heartbeat_s: 15
+cache_ttl_s: 3600
+cache_max_items: 512
+session_ttl_s: 3600

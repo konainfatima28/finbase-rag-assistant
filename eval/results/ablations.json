@@ -1,0 +1,102 @@
+{
+  "created_at": "2026-10-06T19:20:50+00:00",
+  "dense": true,
+  "rows": [
+    {
+      "variant": "structure+dedup+headers (default)",
+      "chunks": 190,
+      "bm25": {
+        "hit@1": 0.75,
+        "recall@5": 0.9405,
+        "mrr": 0.8538,
+        "ndcg@10": 0.9058,
+        "context_precision": 0.4071,
+        "n": 84.0
+      },
+      "dense": {
+        "hit@1": 0.8929,
+        "mrr": 0.927,
+        "ndcg@10": 0.9243,
+        "recall@5": 0.9405
+      },
+      "hybrid_rerank": {
+        "hit@1": 0.881,
+        "mrr": 0.9369,
+        "ndcg@10": 0.9488,
+        "recall@5": 0.9821
+      }
+    },
+    {
+      "variant": "no dedup",
+      "chunks": 1172,
+      "bm25": {
+        "hit@1": 0.7381,
+        "recall@5": 0.7381,
+        "mrr": 0.7728,
+        "ndcg@10": 0.7377,
+        "context_precision": 0.2429,
+        "n": 84.0
+      },
+      "dense": {
+        "hit@1": 0.3095,
+        "mrr": 0.364,
+        "ndcg@10": 0.4306,
+        "recall@5": 0.3036
+      },
+      "hybrid_rerank": {
+        "hit@1": 0.6071,
+        "mrr": 0.6501,
+        "ndcg@10": 0.6438,
+        "recall@5": 0.6548
+      }
+    },
+    {
+      "variant": "no contextual headers",
+      "chunks": 190,
+      "bm25": {
+        "hit@1": 0.6548,
+        "recall@5": 0.9464,
+        "mrr": 0.7946,
+        "ndcg@10": 0.8641,
+        "context_precision": 0.3929,
+        "n": 84.0
+      },
+      "dense": {
+        "hit@1": 0.8214,
+        "mrr": 0.8784,
+        "ndcg@10": 0.899,
+        "recall@5": 0.9167
+      },
+      "hybrid_rerank": {
+        "hit@1": 0.8452,
+        "mrr": 0.9067,
+        "ndcg@10": 0.9246,
+        "recall@5": 0.9821
+      }
+    },
+    {
+      "variant": "fixed-size chunks (baseline)",
+      "chunks": 468,
+      "bm25": {
+        "hit@1": 0.2143,
+        "recall@5": 0.2619,
+        "mrr": 0.2636,
+        "ndcg@10": 0.2488,
+        "context_precision": 0.0619,
+        "n": 84.0
+      },
+      "dense": {
+        "hit@1": 0.1667,
+        "mrr": 0.2126,
+        "ndcg@10": 0.2448,
+        "recall@5": 0.2024
+      },
+      "hybrid_rerank": {
+        "hit@1": 0.2857,
+        "mrr": 0.3213,
+        "ndcg@10": 0.3246,
+        "recall@5": 0.3631
+      }
+    }
+  ]
+}

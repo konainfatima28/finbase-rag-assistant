@@ -1,0 +1,27 @@
+# Stable mapping of raw files -> document identity. Citations use doc_id/title/code, never file names.
+effective_date: "2026-10-01"
+documents:
+  - file: sample_5.pdf
+    doc_id: personal_loans
+    title: FinBase Personal Loans Master Policy & Operational Manual
+    code: FB-POL-PL-2026-V4
+  - file: sample_3.pdf
+    doc_id: credit_cards
+    title: FinBase Credit Cards Comprehensive Handbook & Cardholder Agreement
+    code: FB-POL-CC-2026-V5
+  - file: sample_4.pdf
+    doc_id: savings_account
+    title: FinBase Digital Savings Accounts & Banking Operations Manual
+    code: FB-POL-SAV-2026-V3
+  - file: sample_2.pdf
+    doc_id: payments_upi
+    title: FinBase Payments, UPI & Refund Settlement SOP
+    code: FB-SOP-PAY-2026-V4
+  - file: sample_1.pdf
+    doc_id: fd_wealth
+    title: FinBase Fixed Deposits & Wealth Products Master Guidelines
+    code: FB-POL-FDW-2026-V3
+  - file: sample_6.pdf
+    doc_id: kyc_security
+    title: FinBase KYC Verification, Compliance & Security Master Document
+    code: FB-POL-KYC-SEC-2026-V5

@@ -1,0 +1,3823 @@
+{
+  "generated_at": "2026-10-06T16:27:05+00:00",
+  "documents": {
+    "personal_loans": {
+      "file": "sample_5.pdf",
+      "title": "FinBase Personal Loans Master Policy & Operational Manual",
+      "code": "FB-POL-PL-2026-V4",
+      "sha256": "aad9ebca565916cef8ca21134ac08dd17ddf868acae9fdb10d033e30515f167d",
+      "extraction": {
+        "pages": 26,
+        "glyph_raw_count": 88,
+        "rupee_after_clean": 88,
+        "glyph_residual_in_chunks": 0,
+        "page_break_glues": 25,
+        "faq_naive_line_start_ff_joined": 86,
+        "faq_anywhere_raw": 100,
+        "faq_line_start_after_deglue": 100,
+        "faq_parsed": 100,
+        "raw_lines": 951,
+        "clean_lines": 795,
+        "wrapped_faq_questions_rejoined": 0,
+        "bold_markers_raw": 0,
+        "backticks_raw": 6,
+        "markdown_residual_in_chunks": 0,
+        "toc_anchor_residual_in_chunks": 0,
+        "formfeed_residual_in_chunks": 0,
+        "tables": 16,
+        "tables_spanning_pages_merged": [],
+        "multi_line_cells": [
+          "0% (up to 25% of principal / year after 6 EMIs)",
+          "1.5% of loan amount (Min ₹1,000, Max ₹15,000)",
+          "Executive Tier (Income > ₹1.5L/mo)",
+          "₹1,00,0 + Interest accrued during cooling days"
+        ],
+        "amounts_total": 89,
+        "amounts_indian_grouped": 31,
+        "amounts_L_suffix": [
+          "■1.5L"
+        ],
+        "amounts_lakh_words": [
+          "15 Lakhs"
+        ],
+        "malformed_amounts": [
+          {
+            "value": "₹1,00,0",
+            "section": "21",
+            "context": "Loan Cancellation / Reversal Fee | ₹1,00,0 + Interest accrued during cooling days | 18% GST Extra | Within 3-day cooling period",
+            "templated_copies": false
+          }
+        ],
+        "sections_body": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23"
+        ],
+        "subsections": [
+          "2.1",
+          "2.2",
+          "2.3",
+          "4.1",
+          "4.2",
+          "5.1",
+          "5.2",
+          "6.1",
+          "6.2",
+          "6.3"
+        ]
+      },
+      "structure": {
+        "toc_entries": 23,
+        "missing_in_body": [],
+        "body_not_in_toc": [],
+        "annex_sections": [],
+        "toc_title_mismatches": [
+          {
+            "section": "1",
+            "toc": "Policy Clause 1",
+            "body": "Executive Summary & Objective"
+          },
+          {
+            "section": "2",
+            "toc": "Policy Clause 2",
+            "body": "Borrower Eligibility Criteria"
+          },
+          {
+            "section": "3",
+            "toc": "Policy Clause 3",
+            "body": "Loan Quantums, Slabs, and Tenure Options"
+          },
+          {
+            "section": "4",
+            "toc": "Policy Clause 4",
+            "body": "Interest Rate Mechanics & Processing Fees"
+          },
+          {
+            "section": "5",
+            "toc": "Policy Clause 5",
+            "body": "Repayment, EMI Mandate, and Default Penalties"
+          },
+          {
+            "section": "6",
+            "toc": "Policy Clause 6",
+            "body": "Prepayment, Part-Payment, and Foreclosure Guidelines"
+          },
+          {
+            "section": "7",
+            "toc": "Policy Clause 7",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "8",
+            "toc": "Policy Clause 8",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "9",
+            "toc": "Policy Clause 9",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "10",
+            "toc": "Policy Clause 10",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "11",
+            "toc": "Policy Clause 11",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "12",
+            "toc": "Policy Clause 12",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "13",
+            "toc": "Policy Clause 13",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "14",
+            "toc": "Policy Clause 14",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "15",
+            "toc": "Policy Clause 15",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "16",
+            "toc": "Policy Clause 16",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "17",
+            "toc": "Policy Clause 17",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "18",
+            "toc": "Policy Clause 18",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "19",
+            "toc": "Policy Clause 19",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "20",
+            "toc": "Policy Clause 20",
+            "body": "Operational Procedures, Underwriting Rules & Standards"
+          },
+          {
+            "section": "21",
+            "toc": "Master Schedule of Charges",
+            "body": "Master Schedule of Personal Loan Fees and Charges"
+          },
+          {
+            "section": "23",
+            "toc": "Comprehensive Personal Loans FAQ Directory",
+            "body": "Comprehensive Personal Loans FAQ Directory (Items 1 - 100)"
+          }
+        ],
+        "faq_total": 100,
+        "faq_unique_questions": 10,
+        "faq_copies_per_question": [
+          10
+        ],
+        "faq_same_question_different_answer": [],
+        "templated_boilerplate_sections": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ]
+      },
+      "faq_section_reference_issues": [
+        {
+          "faq_id": "Q001",
+          "question": "What is the foreclosure charge if I close my personal loan in 18 months?",
+          "cited_in_text": "4.2",
+          "cited_title": "Upfront Processing Charges",
+          "support_in_cited": 0.12,
+          "supported_by": [
+            {
+              "section": "6.2",
+              "title": "Foreclosure Charges & Rules",
+              "score": 0.59
+            },
+            {
+              "section": "21",
+              "title": "Master Schedule of Personal Loan Fees and Charges",
+              "score": 0.35
+            }
+          ],
+          "status": "WRONG_SECTION"
+        },
+        {
+          "faq_id": "Q002",
+          "question": "What is the foreclosure charge if I close my personal loan after 26 months?",
+          "cited_in_text": "4.2",
+          "cited_title": "Upfront Processing Charges",
+          "support_in_cited": 0.14,
+          "supported_by": [
+            {
+              "section": "6.2",
+              "title": "Foreclosure Charges & Rules",
+              "score": 0.71
+            },
+            {
+              "section": "21",
+              "title": "Master Schedule of Personal Loan Fees and Charges",
+              "score": 0.43
+            }
+          ],
+          "status": "WRONG_SECTION"
+        },
+        {
+          "faq_id": "Q003",
+          "question": "Can I close my personal loan within 3 months of getting it?",
+          "cited_in_text": "4.2",
+          "cited_title": "Upfront Processing Charges",
+          "support_in_cited": 0.15,
+          "supported_by": [
+            {
+              "section": "6.2",
+              "title": "Foreclosure Charges & Rules",
+              "score": 0.69
+            },
+            {
+              "section": "21",
+              "title": "Master Schedule of Personal Loan Fees and Charges",
+              "score": 0.38
+            }
+          ],
+          "status": "WRONG_SECTION"
+        },
+        {
+          "faq_id": "Q004",
+          "question": "How much part-prepayment can I make without paying any fee?",
+          "cited_in_text": "4.1",
+          "cited_title": "Annual Percentage Rate (APR)",
+          "support_in_cited": 0.05,
+          "supported_by": [
+            {
+              "section": "6.1",
+              "title": "Part-Prepayment Terms",
+              "score": 0.58
+            },
+            {
+              "section": "21",
+              "title": "Master Schedule of Personal Loan Fees and Charges",
+              "score": 0.32
+            }
+          ],
+          "status": "WRONG_SECTION"
+        }
+      ],
+      "unsupported_services": []
+    },
+    "credit_cards": {
+      "file": "sample_3.pdf",
+      "title": "FinBase Credit Cards Comprehensive Handbook & Cardholder Agreement",
+      "code": "FB-POL-CC-2026-V5",
+      "sha256": "2667daba441d92add0a299e3b99df56264875933db0ae615378211ab93af9e2b",
+      "extraction": {
+        "pages": 26,
+        "glyph_raw_count": 145,
+        "rupee_after_clean": 145,
+        "glyph_residual_in_chunks": 0,
+        "page_break_glues": 25,
+        "faq_naive_line_start_ff_joined": 98,
+        "faq_anywhere_raw": 100,
+        "faq_line_start_after_deglue": 100,
+        "faq_parsed": 100,
+        "raw_lines": 974,
+        "clean_lines": 803,
+        "wrapped_faq_questions_rejoined": 10,
+        "bold_markers_raw": 0,
+        "backticks_raw": 0,
+        "markdown_residual_in_chunks": 0,
+        "toc_anchor_residual_in_chunks": 0,
+        "formfeed_residual_in_chunks": 0,
+        "tables": 18,
+        "tables_spanning_pages_merged": [
+          "credit_cards-t003",
+          "credit_cards-t008"
+        ],
+        "multi_line_cells": [
+          "PIN block after 3 invalid attempts"
+        ],
+        "amounts_total": 145,
+        "amounts_indian_grouped": 29,
+        "amounts_L_suffix": [
+          "■1.2L",
+          "■5L"
+        ],
+        "amounts_lakh_words": [],
+        "malformed_amounts": [],
+        "sections_body": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "23"
+        ],
+        "subsections": [
+          "1.1",
+          "1.2",
+          "1.3",
+          "3.1",
+          "3.2",
+          "3.3"
+        ]
+      },
+      "structure": {
+        "toc_entries": 23,
+        "missing_in_body": [
+          {
+            "section": "22",
+            "toc_title": "Reward Points Accrual and Redemption Matrix"
+          }
+        ],
+        "body_not_in_toc": [],
+        "annex_sections": [],
+        "toc_title_mismatches": [
+          {
+            "section": "1",
+            "toc": "Card Operations Clause 1",
+            "body": "Introduction and Card Tiers Overview"
+          },
+          {
+            "section": "2",
+            "toc": "Card Operations Clause 2",
+            "body": "Credit Limit Assignment and Enhancement"
+          },
+          {
+            "section": "3",
+            "toc": "Card Operations Clause 3",
+            "body": "Billing Cycle, Grace Period, and Minimum Amount Due (MAD)"
+          },
+          {
+            "section": "4",
+            "toc": "Card Operations Clause 4",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "5",
+            "toc": "Card Operations Clause 5",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "6",
+            "toc": "Card Operations Clause 6",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "7",
+            "toc": "Card Operations Clause 7",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "8",
+            "toc": "Card Operations Clause 8",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "9",
+            "toc": "Card Operations Clause 9",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "10",
+            "toc": "Card Operations Clause 10",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "11",
+            "toc": "Card Operations Clause 11",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "12",
+            "toc": "Card Operations Clause 12",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "13",
+            "toc": "Card Operations Clause 13",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "14",
+            "toc": "Card Operations Clause 14",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "15",
+            "toc": "Card Operations Clause 15",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "16",
+            "toc": "Card Operations Clause 16",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "17",
+            "toc": "Card Operations Clause 17",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "18",
+            "toc": "Card Operations Clause 18",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "19",
+            "toc": "Card Operations Clause 19",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "20",
+            "toc": "Card Operations Clause 20",
+            "body": "Credit Card Processing Rules & Security Standards"
+          },
+          {
+            "section": "21",
+            "toc": "Master Schedule of Credit Card Fees",
+            "body": "Master Schedule of Credit Card Fees and Penalties"
+          },
+          {
+            "section": "23",
+            "toc": "Cardholder FAQ Directory",
+            "body": "Cardholder FAQ Directory (Items 1 - 100)"
+          }
+        ],
+        "faq_total": 100,
+        "faq_unique_questions": 10,
+        "faq_copies_per_question": [
+          10
+        ],
+        "faq_same_question_different_answer": [],
+        "templated_boilerplate_sections": [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ]
+      },
+      "faq_section_reference_issues": [],
+      "unsupported_services": []
+    },
+    "savings_account": {
+      "file": "sample_4.pdf",
+      "title": "FinBase Digital Savings Accounts & Banking Operations Manual",
+      "code": "FB-POL-SAV-2026-V3",
+      "sha256": "4ad45e092ff07035499b8ef8a3e83a39f659e61e1a469c6920a9587a128a08cb",
+      "extraction": {
+        "pages": 25,
+        "glyph_raw_count": 235,
+        "rupee_after_clean": 235,
+        "glyph_residual_in_chunks": 0,
+        "page_break_glues": 24,
+        "faq_naive_line_start_ff_joined": 98,
+        "faq_anywhere_raw": 100,
+        "faq_line_start_after_deglue": 100,
+        "faq_parsed": 100,
+        "raw_lines": 928,
+        "clean_lines": 790,
+        "wrapped_faq_questions_rejoined": 0,
+        "bold_markers_raw": 0,
+        "backticks_raw": 0,
+        "markdown_residual_in_chunks": 0,
+        "toc_anchor_residual_in_chunks": 0,
+        "formfeed_residual_in_chunks": 0,
+        "tables": 19,
+        "tables_spanning_pages_merged": [
+          "savings_account-t003",
+          "savings_account-t016",
+          "savings_account-t019"
+        ],
+        "multi_line_cells": [],
+        "amounts_total": 235,
+        "amounts_indian_grouped": 124,
+        "amounts_L_suffix": [
+          "■10L",
+          "■1L"
+        ],
+        "amounts_lakh_words": [
+          "10 Lakhs"
+        ],
+        "malformed_amounts": [
+          {
+            "value": "₹5,00,0",
+            "section": "4",
+            "context": "SAV-OPS-403 | Contactless Tap | ₹5,00,0 | ₹25,000 | Free",
+            "templated_copies": true
+          },
+          {
+            "value": "₹5,00,0",
+            "section": "10",
+            "context": "SAV-OPS-1003 | Contactless Tap | ₹5,00,0 | ₹25,000 | Free",
+            "templated_copies": true
+          }
+        ],
+        "sections_body": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "23"
+        ],
+        "subsections": []
+      },
+      "structure": {
+        "toc_entries": 23,
+        "missing_in_body": [
+          {
+            "section": "22",
+            "toc_title": "Electronic Fund Transfer Limits and Cutoff Times"
+          }
+        ],
+        "body_not_in_toc": [],
+        "annex_sections": [],
+        "toc_title_mismatches": [
+          {
+            "section": "1",
+            "toc": "Banking Operations Clause 1",
+            "body": "Account Features and Minimum Balance Terms"
+          },
+          {
+            "section": "2",
+            "toc": "Banking Operations Clause 2",
+            "body": "Tiered Savings Account Interest Rate Slabs"
+          },
+          {
+            "section": "3",
+            "toc": "Banking Operations Clause 3",
+            "body": "Electronic Fund Transfer Limits & Charges"
+          },
+          {
+            "section": "4",
+            "toc": "Banking Operations Clause 4",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "5",
+            "toc": "Banking Operations Clause 5",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "6",
+            "toc": "Banking Operations Clause 6",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "7",
+            "toc": "Banking Operations Clause 7",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "8",
+            "toc": "Banking Operations Clause 8",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "9",
+            "toc": "Banking Operations Clause 9",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "10",
+            "toc": "Banking Operations Clause 10",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "11",
+            "toc": "Banking Operations Clause 11",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "12",
+            "toc": "Banking Operations Clause 12",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "13",
+            "toc": "Banking Operations Clause 13",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "14",
+            "toc": "Banking Operations Clause 14",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "15",
+            "toc": "Banking Operations Clause 15",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "16",
+            "toc": "Banking Operations Clause 16",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "17",
+            "toc": "Banking Operations Clause 17",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "18",
+            "toc": "Banking Operations Clause 18",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "19",
+            "toc": "Banking Operations Clause 19",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "20",
+            "toc": "Banking Operations Clause 20",
+            "body": "Savings Account Telemetry & Operational Standards"
+          },
+          {
+            "section": "21",
+            "toc": "Master Schedule of Banking Charges",
+            "body": "Master Schedule of Savings Account Charges"
+          },
+          {
+            "section": "23",
+            "toc": "Digital Savings Account FAQ Directory",
+            "body": "Digital Savings Account FAQ Directory (Items 1 - 100)"
+          }
+        ],
+        "faq_total": 100,
+        "faq_unique_questions": 10,
+        "faq_copies_per_question": [
+          10
+        ],
+        "faq_same_question_different_answer": [],
+        "templated_boilerplate_sections": [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ]
+      },
+      "faq_section_reference_issues": [],
+      "unsupported_services": []
+    },
+    "payments_upi": {
+      "file": "sample_2.pdf",
+      "title": "FinBase Payments, UPI & Refund Settlement SOP",
+      "code": "FB-SOP-PAY-2026-V4",
+      "sha256": "5c7b04d0a40a8a008b21ae73e0e5377b68385a8720ebd24916cd7424c2529c05",
+      "extraction": {
+        "pages": 25,
+        "glyph_raw_count": 49,
+        "rupee_after_clean": 49,
+        "glyph_residual_in_chunks": 0,
+        "page_break_glues": 24,
+        "faq_naive_line_start_ff_joined": 98,
+        "faq_anywhere_raw": 100,
+        "faq_line_start_after_deglue": 100,
+        "faq_parsed": 100,
+        "raw_lines": 949,
+        "clean_lines": 772,
+        "wrapped_faq_questions_rejoined": 10,
+        "bold_markers_raw": 2,
+        "backticks_raw": 0,
+        "markdown_residual_in_chunks": 0,
+        "toc_anchor_residual_in_chunks": 0,
+        "formfeed_residual_in_chunks": 0,
+        "tables": 18,
+        "tables_spanning_pages_merged": [
+          "payments_upi-t002",
+          "payments_upi-t010"
+        ],
+        "multi_line_cells": [],
+        "amounts_total": 49,
+        "amounts_indian_grouped": 22,
+        "amounts_L_suffix": [],
+        "amounts_lakh_words": [],
+        "malformed_amounts": [],
+        "sections_body": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "23"
+        ],
+        "subsections": []
+      },
+      "structure": {
+        "toc_entries": 23,
+        "missing_in_body": [
+          {
+            "section": "22",
+            "toc_title": "Dispute Arbitration and Chargeback Workflow"
+          }
+        ],
+        "body_not_in_toc": [],
+        "annex_sections": [],
+        "toc_title_mismatches": [
+          {
+            "section": "1",
+            "toc": "Payment Protocol Clause 1",
+            "body": "UPI Limits and 24-Hour Security Cooling Period"
+          },
+          {
+            "section": "2",
+            "toc": "Payment Protocol Clause 2",
+            "body": "Failed Transactions and Auto-Reversal Turnaround Time (TAT)"
+          },
+          {
+            "section": "3",
+            "toc": "Payment Protocol Clause 3",
+            "body": "Merchant Disputes, Chargebacks, and Provisional Credit"
+          },
+          {
+            "section": "4",
+            "toc": "Payment Protocol Clause 4",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "5",
+            "toc": "Payment Protocol Clause 5",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "6",
+            "toc": "Payment Protocol Clause 6",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "7",
+            "toc": "Payment Protocol Clause 7",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "8",
+            "toc": "Payment Protocol Clause 8",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "9",
+            "toc": "Payment Protocol Clause 9",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "10",
+            "toc": "Payment Protocol Clause 10",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "11",
+            "toc": "Payment Protocol Clause 11",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "12",
+            "toc": "Payment Protocol Clause 12",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "13",
+            "toc": "Payment Protocol Clause 13",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "14",
+            "toc": "Payment Protocol Clause 14",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "15",
+            "toc": "Payment Protocol Clause 15",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "16",
+            "toc": "Payment Protocol Clause 16",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "17",
+            "toc": "Payment Protocol Clause 17",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "18",
+            "toc": "Payment Protocol Clause 18",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "19",
+            "toc": "Payment Protocol Clause 19",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "20",
+            "toc": "Payment Protocol Clause 20",
+            "body": "Payment Gateway Mechanics & Settlement Standards"
+          },
+          {
+            "section": "21",
+            "toc": "Failed Transaction Auto-Reversal SLA Matrix",
+            "body": "Master Auto-Reversal SLA and Compensation Matrix"
+          },
+          {
+            "section": "23",
+            "toc": "Payments & UPI FAQ Directory",
+            "body": "Payments & UPI FAQ Directory (Items 1 - 100)"
+          }
+        ],
+        "faq_total": 100,
+        "faq_unique_questions": 10,
+        "faq_copies_per_question": [
+          10
+        ],
+        "faq_same_question_different_answer": [],
+        "templated_boilerplate_sections": [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ]
+      },
+      "faq_section_reference_issues": [],
+      "unsupported_services": []
+    },
+    "fd_wealth": {
+      "file": "sample_1.pdf",
+      "title": "FinBase Fixed Deposits & Wealth Products Master Guidelines",
+      "code": "FB-POL-FDW-2026-V3",
+      "sha256": "24211b095e120204de192fcf4d052944af28ea683a26980dcd1bfdeab6b6d614",
+      "extraction": {
+        "pages": 25,
+        "glyph_raw_count": 121,
+        "rupee_after_clean": 121,
+        "glyph_residual_in_chunks": 0,
+        "page_break_glues": 24,
+        "faq_naive_line_start_ff_joined": 100,
+        "faq_anywhere_raw": 100,
+        "faq_line_start_after_deglue": 100,
+        "faq_parsed": 100,
+        "raw_lines": 941,
+        "clean_lines": 790,
+        "wrapped_faq_questions_rejoined": 0,
+        "bold_markers_raw": 18,
+        "backticks_raw": 0,
+        "markdown_residual_in_chunks": 0,
+        "toc_anchor_residual_in_chunks": 0,
+        "formfeed_residual_in_chunks": 0,
+        "tables": 16,
+        "tables_spanning_pages_merged": [
+          "fd_wealth-t010"
+        ],
+        "multi_line_cells": [],
+        "amounts_total": 124,
+        "amounts_indian_grouped": 21,
+        "amounts_L_suffix": [],
+        "amounts_lakh_words": [
+          "50 Lakhs"
+        ],
+        "malformed_amounts": [],
+        "sections_body": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "22",
+          "23",
+          "FDW-EXT-001"
+        ],
+        "subsections": []
+      },
+      "structure": {
+        "toc_entries": 23,
+        "missing_in_body": [
+          {
+            "section": "21",
+            "toc_title": "Master Fixed Deposit Interest Rate Matrix"
+          }
+        ],
+        "body_not_in_toc": [],
+        "annex_sections": [
+          "FDW-EXT-001"
+        ],
+        "toc_title_mismatches": [
+          {
+            "section": "1",
+            "toc": "Wealth Management Clause 1",
+            "body": "Fixed Deposit Tenures, Interest Rates, and Senior Citizen Advantage"
+          },
+          {
+            "section": "2",
+            "toc": "Wealth Management Clause 2",
+            "body": "Premature Liquidation and Penalties"
+          },
+          {
+            "section": "3",
+            "toc": "Wealth Management Clause 3",
+            "body": "Tax Deducted at Source (TDS) & Form 15G / 15H"
+          },
+          {
+            "section": "4",
+            "toc": "Wealth Management Clause 4",
+            "body": "FinBase Wealth — Mutual Funds & SIP"
+          },
+          {
+            "section": "5",
+            "toc": "Wealth Management Clause 5",
+            "body": "FinBase Wealth — 24K Digital Gold and Silver"
+          },
+          {
+            "section": "6",
+            "toc": "Wealth Management Clause 6",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "7",
+            "toc": "Wealth Management Clause 7",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "8",
+            "toc": "Wealth Management Clause 8",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "9",
+            "toc": "Wealth Management Clause 9",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "10",
+            "toc": "Wealth Management Clause 10",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "11",
+            "toc": "Wealth Management Clause 11",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "12",
+            "toc": "Wealth Management Clause 12",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "13",
+            "toc": "Wealth Management Clause 13",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "14",
+            "toc": "Wealth Management Clause 14",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "15",
+            "toc": "Wealth Management Clause 15",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "16",
+            "toc": "Wealth Management Clause 16",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "17",
+            "toc": "Wealth Management Clause 17",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "18",
+            "toc": "Wealth Management Clause 18",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "19",
+            "toc": "Wealth Management Clause 19",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "20",
+            "toc": "Wealth Management Clause 20",
+            "body": "Wealth Portfolio Risk & Asset Management Standards"
+          },
+          {
+            "section": "22",
+            "toc": "Exclusions & Prohibited Services Policy",
+            "body": "Explicit Product Exclusions & Unsupported Services Policy"
+          },
+          {
+            "section": "23",
+            "toc": "Fixed Deposits & Wealth FAQ Directory",
+            "body": "Fixed Deposits & Wealth FAQ Directory (Items 1 - 100)"
+          }
+        ],
+        "faq_total": 100,
+        "faq_unique_questions": 10,
+        "faq_copies_per_question": [
+          10
+        ],
+        "faq_same_question_different_answer": [],
+        "templated_boilerplate_sections": [
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ]
+      },
+      "faq_section_reference_issues": [],
+      "unsupported_services": [
+        {
+          "section": "22",
+          "section_title": "Explicit Product Exclusions & Unsupported Services Policy",
+          "service": "Cryptocurrency & Virtual Digital Assets",
+          "text": "• Cryptocurrency & Virtual Digital Assets: FinBase does NOT provide cryptocurrency trading, Bitcoin/Ethereum wallets, or virtual digital asset exchange facilities."
+        },
+        {
+          "section": "22",
+          "section_title": "Explicit Product Exclusions & Unsupported Services Policy",
+          "service": "Agricultural Property Loans",
+          "text": "• Agricultural Property Loans: FinBase does NOT offer loans against agricultural farmland or rural mortgage loans."
+        },
+        {
+          "section": "22",
+          "section_title": "Explicit Product Exclusions & Unsupported Services Policy",
+          "service": "Speculative Intraday Tips",
+          "text": "• Speculative Intraday Tips: FinBase does NOT provide daily stock market intraday calls, F&O options tips, or speculative trading advice."
+        },
+        {
+          "section": "22",
+          "section_title": "Explicit Product Exclusions & Unsupported Services Policy",
+          "service": "Unregulated Chit Funds / Ponzi Schemes",
+          "text": "• Unregulated Chit Funds / Ponzi Schemes: Strictly prohibited under compliance governance."
+        }
+      ]
+    },
+    "kyc_security": {
+      "file": "sample_6.pdf",
+      "title": "FinBase KYC Verification, Compliance & Security Master Document",
+      "code": "FB-POL-KYC-SEC-2026-V5",
+      "sha256": "37b060e471de72c6e4df3b886948b69fa2e2175ef25d7a9136553100d901ab75",
+      "extraction": {
+        "pages": 25,
+        "glyph_raw_count": 48,
+        "rupee_after_clean": 48,
+        "glyph_residual_in_chunks": 0,
+        "page_break_glues": 24,
+        "faq_naive_line_start_ff_joined": 100,
+        "faq_anywhere_raw": 100,
+        "faq_line_start_after_deglue": 100,
+        "faq_parsed": 100,
+        "raw_lines": 948,
+        "clean_lines": 783,
+        "wrapped_faq_questions_rejoined": 0,
+        "bold_markers_raw": 8,
+        "backticks_raw": 2,
+        "markdown_residual_in_chunks": 0,
+        "toc_anchor_residual_in_chunks": 0,
+        "formfeed_residual_in_chunks": 0,
+        "tables": 14,
+        "tables_spanning_pages_merged": [
+          "kyc_security-t003"
+        ],
+        "multi_line_cells": [
+          "TLS 1.3 Perfect Forward Secrecy"
+        ],
+        "amounts_total": 48,
+        "amounts_indian_grouped": 11,
+        "amounts_L_suffix": [],
+        "amounts_lakh_words": [],
+        "malformed_amounts": [],
+        "sections_body": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "23",
+          "KYC-EXT-001",
+          "KYC-EXT-002",
+          "KYC-EXT-003"
+        ],
+        "subsections": []
+      },
+      "structure": {
+        "toc_entries": 23,
+        "missing_in_body": [
+          {
+            "section": "21",
+            "toc_title": "Zero Liability Fraud Policy & Reporting Timelines"
+          },
+          {
+            "section": "22",
+            "toc_title": "Video KYC Operating Standards & Technical Prerequisites"
+          }
+        ],
+        "body_not_in_toc": [],
+        "annex_sections": [
+          "KYC-EXT-001",
+          "KYC-EXT-002",
+          "KYC-EXT-003"
+        ],
+        "toc_title_mismatches": [
+          {
+            "section": "1",
+            "toc": "Compliance Clause 1",
+            "body": "Customer Identification and KYC Tiers"
+          },
+          {
+            "section": "2",
+            "toc": "Compliance Clause 2",
+            "body": "Officially Valid Documents (OVD) Accepted"
+          },
+          {
+            "section": "3",
+            "toc": "Compliance Clause 3",
+            "body": "Video KYC Process, Timings, and Prerequisites"
+          },
+          {
+            "section": "4",
+            "toc": "Compliance Clause 4",
+            "body": "Account Inactivity, Dormancy, and Reactivation"
+          },
+          {
+            "section": "5",
+            "toc": "Compliance Clause 5",
+            "body": "Electronic Fraud & Zero Liability Policy"
+          },
+          {
+            "section": "6",
+            "toc": "Compliance Clause 6",
+            "body": "Emergency Account & Card Blocking Protocols"
+          },
+          {
+            "section": "7",
+            "toc": "Compliance Clause 7",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "8",
+            "toc": "Compliance Clause 8",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "9",
+            "toc": "Compliance Clause 9",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "10",
+            "toc": "Compliance Clause 10",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "11",
+            "toc": "Compliance Clause 11",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "12",
+            "toc": "Compliance Clause 12",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "13",
+            "toc": "Compliance Clause 13",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "14",
+            "toc": "Compliance Clause 14",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "15",
+            "toc": "Compliance Clause 15",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "16",
+            "toc": "Compliance Clause 16",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "17",
+            "toc": "Compliance Clause 17",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "18",
+            "toc": "Compliance Clause 18",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "19",
+            "toc": "Compliance Clause 19",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "20",
+            "toc": "Compliance Clause 20",
+            "body": "Information Security Architecture & Telemetry Standards"
+          },
+          {
+            "section": "23",
+            "toc": "KYC & Security FAQ Directory",
+            "body": "KYC & Security FAQ Directory (Items 1 - 100)"
+          }
+        ],
+        "faq_total": 100,
+        "faq_unique_questions": 10,
+        "faq_copies_per_question": [
+          10
+        ],
+        "faq_same_question_different_answer": [],
+        "templated_boilerplate_sections": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20"
+        ]
+      },
+      "faq_section_reference_issues": [],
+      "unsupported_services": []
+    }
+  },
+  "findings": [
+    {
+      "category": "range_conflict",
+      "doc_id": "personal_loans",
+      "detail": "range starting ₹150 has different upper bounds ['350', '400']",
+      "evidence": [
+        "Section 4.2: …the disbursed proceeds. • Disbursal stamp duty and e-mandate registration fees (₹150 to ₹400 depending on state of executi…",
+        "Section 21: …: Non-refundable Fee Category: Mandate Registration / E-sign | Standard Charge: ₹150 - ₹350 (State Stamp Duty) | Tax Appl…"
+      ]
+    },
+    {
+      "category": "tax_wording_variance",
+      "doc_id": "credit_cards",
+      "detail": "₹999: GST stated as ['18% GST', 'GST']",
+      "evidence": [
+        "Section 1.2: ₹999 + 18% GST",
+        "Section 21: ₹999 + GST"
+      ]
+    },
+    {
+      "category": "tax_wording_variance",
+      "doc_id": "credit_cards",
+      "detail": "₹4,999: GST stated as ['18% GST', 'GST']",
+      "evidence": [
+        "Section 1.3: ₹4,999 + 18% GST",
+        "Section 21: ₹4,999 + GST"
+      ]
+    },
+    {
+      "category": "faq_body_period_mismatch",
+      "doc_id": "credit_cards",
+      "detail": "Q002 says 'previous calendar year' but Section 1.2 says 'preceding membership year'",
+      "evidence": [
+        "Q002: The annual fee is ₹999 + 18% GST. As per Section 1.2, it is 100% waived if your total annual spends exceed ₹1,20,000 in the previous calendar year. [Reference Cardholder Agreement Section: Clause CC-RULE-002].",
+        "Section 1.2: • Annual Fee Waiver: The annual fee for subsequent years is 100% waived if the total annual card spend exceeds ₹1,20,000 in the preceding membership year."
+      ]
+    },
+    {
+      "category": "tax_wording_variance",
+      "doc_id": "savings_account",
+      "detail": "₹21: GST stated as ['18% GST', 'GST']",
+      "evidence": [
+        "Section 3: ₹21 + 18% GST",
+        "Section 21: ₹21 + GST"
+      ]
+    },
+    {
+      "category": "faq_omits_condition",
+      "doc_id": "savings_account",
+      "detail": "Q004 states the 'metro' figure (3) but omits the non-metro case (5) given in Section 3",
+      "evidence": [
+        "Q004: Under Section 3, customers receive 5 free cash withdrawals per month at partner ATMs (3 free per month at other metro ATMs).",
+        "Section 3: • Non-Partner ATMs: 3 free withdrawals per month in metro cities (5 in non-metro locations)."
+      ]
+    },
+    {
+      "category": "faq_absolute_claim_vs_bounded_table",
+      "doc_id": "savings_account",
+      "detail": "Q010 claims 'at any time' (absolute) but Section 21 rows are bounded",
+      "evidence": [
+        "Q010: No, FinBase does not levy any account closure fee at any time. [Reference Savings Account Manual Section: Clause SAV-RULE-010].",
+        "Section 21: Account Closure Fee (within 14 days) | ₹0 (Free) | Cooling-off period"
+      ]
+    },
+    {
+      "category": "faq_absolute_claim_vs_bounded_table",
+      "doc_id": "savings_account",
+      "detail": "Q010 claims 'at any time' (absolute) but Section 21 rows are bounded",
+      "evidence": [
+        "Q010: No, FinBase does not levy any account closure fee at any time. [Reference Savings Account Manual Section: Clause SAV-RULE-010].",
+        "Section 21: Account Closure Fee (15 days to 12 months) | ₹0 (Free) | Zero closure charges"
+      ]
+    },
+    {
+      "category": "row_inconsistent_or_truncated",
+      "doc_id": "savings_account",
+      "detail": "Section 4: daily '₹5,00,0' vs monthly cap '₹25,000'",
+      "evidence": [
+        "SAV-OPS-403 | Contactless Tap | ₹5,00,0 | ₹25,000 | Free"
+      ]
+    },
+    {
+      "category": "row_inconsistent_or_truncated",
+      "doc_id": "savings_account",
+      "detail": "Section 10: daily '₹5,00,0' vs monthly cap '₹25,000'",
+      "evidence": [
+        "SAV-OPS-1003 | Contactless Tap | ₹5,00,0 | ₹25,000 | Free"
+      ]
+    },
+    {
+      "category": "scenario_dependent_sla",
+      "doc_id": "payments_upi",
+      "detail": "compensation trigger differs: T+['1', '2', '5']",
+      "evidence": [
+        "Section 2: • If the reversal takes longer than T+2 business days, FinBase compensates the ",
+        "Section 2: • Compensation is calculated from the expiry of the T+2 window until the exact credit date, dep",
+        "Section 21: Transaction Scenario: P2P UPI Failed Debit | Regulatory SLA: T + 1 Day | FinBase Standard SLA: T + 2 Business Days | Customer Compensation if Delayed: ₹100 per day beyond T+2 Transaction Scenario: P2M Merchant Onli",
+        "Section 21: Transaction Scenario: P2M Merchant Online Debit Failed | Regulatory SLA: T + 5 Days | FinBase Standard SLA: T + 2 Business Days | Customer Compensation if Delayed: ₹100 per day beyond T+5 Transaction Scenario: ATM Cash N",
+        "Section 21: Transaction Scenario: ATM Cash Not Dispensed | Regulatory SLA: T + 5 Days | FinBase Standard SLA: T + 2 Business Days | Customer Compensation if Delayed: ₹100 per day beyond T+5 Transaction Scenario: IMPS Technical Re",
+        "Section 21: Transaction Scenario: IMPS Technical Reversal Failure | Regulatory SLA: T + 1 Day | FinBase Standard SLA: T + 1 Business Day | Customer Compensation if Delayed: ₹100 per day beyond T+1 Transaction Scenario: POS Card Tran",
+        "Section 21: Transaction Scenario: POS Card Transaction Failed | Regulatory SLA: T + 5 Days | FinBase Standard SLA: T + 3 Business Days | Customer Compensation if Delayed: ₹100 per day beyond T+5 Transaction Scenario: Recurring Manda"
+      ]
+    },
+    {
+      "category": "overlapping_buckets",
+      "doc_id": "fd_wealth",
+      "detail": "Section 1: '2 years to 3 years' and '3 years to 5 years' both include the boundary value",
+      "evidence": [
+        "2 years to 3 years | 7.25% p.a. | 7.75% p.a. | Quarterly Compounded",
+        "3 years to 5 years | 7.00% p.a. | 7.50% p.a. | Quarterly Compounded"
+      ]
+    }
+  ],
+  "expectations": [
+    {
+      "key": "A1",
+      "claim": "fd_wealth Section 21 (rate matrix) listed in TOC but missing from body; rates are in Section 1",
+      "reproduced": true,
+      "evidence": [
+        "fd_wealth: TOC lists Section 21 ('Master Fixed Deposit Interest Rate Matrix'), body has it: False -> OK",
+        "fd_wealth §1: /7\\.50% p\\.a\\./ -> OK (7.50% p.a.)"
+      ]
+    },
+    {
+      "key": "A2",
+      "claim": "payments_upi Section 22 (Dispute Arbitration and Chargeback Workflow) missing",
+      "reproduced": true,
+      "evidence": [
+        "payments_upi: TOC lists Section 22 ('Dispute Arbitration and Chargeback Workflow'), body has it: False -> OK"
+      ]
+    },
+    {
+      "key": "A3",
+      "claim": "credit_cards Section 22 (Reward Points Accrual and Redemption Matrix) missing; no point value/expiry/redemption anywhere",
+      "reproduced": true,
+      "evidence": [
+        "credit_cards: TOC lists Section 22 ('Reward Points Accrual and Redemption Matrix'), body has it: False -> OK",
+        "credit_cards: /reward points?.{0,60}(?:value|expir|redeem|redemption|catalog)/ hits=0 -> OK"
+      ]
+    },
+    {
+      "key": "A4",
+      "claim": "savings_account Section 22 (EFT Limits and Cutoff Times) missing; limits in Section 3",
+      "reproduced": true,
+      "evidence": [
+        "savings_account: TOC lists Section 22 ('Electronic Fund Transfer Limits and Cutoff Times'), body has it: False -> OK",
+        "savings_account §3: /IMPS.*₹5,00,000/ -> OK (IMPS (Immediate Payment Service): Free for all active account holders, up to ₹5,00,000)"
+      ]
+    },
+    {
+      "key": "A5",
+      "claim": "kyc_security Sections 21 and 22 missing; content exists in Sections 5 and 3",
+      "reproduced": true,
+      "evidence": [
+        "kyc_security: TOC lists Section 21 ('Zero Liability Fraud Policy & Reporting Timelines'), body has it: False -> OK",
+        "kyc_security: TOC lists Section 22 ('Video KYC Operating Standards & Technical Prerequisites'), body has it: False -> OK",
+        "kyc_security §5: /Zero Liability/ -> OK (Zero Liability)",
+        "kyc_security §3: /Video KYC/ -> OK (Video KYC)"
+      ]
+    },
+    {
+      "key": "B1",
+      "claim": "personal_loans FAQ Q001 cites Section 4.2 for foreclosure; foreclosure rules are in 6.2; 4.2 is processing charges",
+      "reproduced": true,
+      "evidence": [
+        "personal_loans FAQ: /Q001: .*foreclosure.*\\n?.*Section 4\\.2/ -> OK (Q001: What is the foreclosure charge if I close my personal loan in 18 months? (Operational case 1) According to FinBase)",
+        "personal_loans §6.2: /3% of the outstanding principal/ -> OK (3% of the outstanding principal)",
+        "personal_loans §4.2: /processing fee/ -> OK (processing fee)"
+      ]
+    },
+    {
+      "key": "C1",
+      "claim": "payments_upi: Section 2 T+2 + ₹100/day after T+2; Section 21 P2M compensation beyond T+5",
+      "reproduced": true,
+      "evidence": [
+        "payments_upi §2: /T\\+2 business days/ -> OK (T+2 business days)",
+        "payments_upi §2: /₹100 per calendar day/ -> OK (₹100 per calendar day)",
+        "payments_upi §21: /P2M Merchant Online Debit Failed.*T \\+ 5 Days.*₹100 per day beyond T\\+5/ -> OK (P2M Merchant Online Debit Failed | Regulatory SLA: T + 5 Days | FinBase Standard SLA: T + 2 Business Days | Customer Com)"
+      ]
+    },
+    {
+      "key": "C2",
+      "claim": "personal_loans mandate/e-sign charge ₹150 to ₹400 (4.2) vs ₹150 - ₹350 (21)",
+      "reproduced": true,
+      "evidence": [
+        "personal_loans §4.2: /₹150 to ₹400/ -> OK (₹150 to ₹400)",
+        "personal_loans §21: /₹150 - ₹350/ -> OK (₹150 - ₹350)"
+      ]
+    },
+    {
+      "key": "C3",
+      "claim": "credit_cards Luxe waiver: 'preceding membership year' (1.2) vs 'previous calendar year' (FAQ Q002)",
+      "reproduced": true,
+      "evidence": [
+        "credit_cards §1.2: /preceding membership year/ -> OK (preceding membership year)",
+        "credit_cards FAQ: /previous\\s+calendar year/ -> OK (previous calendar year)"
+      ]
+    },
+    {
+      "key": "C4",
+      "claim": "savings ATM: FAQ '3 free per month at other metro ATMs' vs Section 3 metro 3 / non-metro 5 / partner 5; '₹21 + 18% GST' (3) vs '₹21 + GST' (21); FAQ 'no closure fee at any time' vs table up to 12 months",
+      "reproduced": true,
+      "evidence": [
+        "savings_account FAQ: /3 free per month at other metro ATMs/ -> OK (3 free per month at other metro ATMs)",
+        "savings_account §3: /3 free withdrawals per month in metro cities \\(5 in non-metro/ -> OK (3 free withdrawals per month in metro cities (5 in non-metro)",
+        "savings_account §3: /₹21 \\+ 18% GST/ -> OK (₹21 + 18% GST)",
+        "savings_account §21: /₹21 \\+ GST/ -> OK (₹21 + GST)",
+        "savings_account FAQ: /closure fee at any time/ -> OK (closure fee at any time)",
+        "savings_account §21: /15 days to 12 months/ -> OK (15 days to 12 months)"
+      ]
+    },
+    {
+      "key": "C5",
+      "claim": "fd_wealth tenure buckets '2 years to 3 years' (7.25%) and '3 years to 5 years' (7.00%) overlap at 3 years",
+      "reproduced": true,
+      "evidence": [
+        "fd_wealth §1: /2 years to 3 years.*7\\.25%/ -> OK (2 years to 3 years | Regular Customer Rate (p.a.): 7.25%)",
+        "fd_wealth §1: /3 years to 5 years.*7\\.00%/ -> OK (3 years to 5 years | Regular Customer Rate (p.a.): 7.00%)"
+      ]
+    },
+    {
+      "key": "D1",
+      "claim": "fd_wealth Section 22 lists unsupported services: crypto, agricultural property loans, intraday/F&O tips, chit funds/Ponzi",
+      "reproduced": true,
+      "evidence": [
+        "fd_wealth §22: /Cryptocurrency/ -> OK (Cryptocurrency)",
+        "fd_wealth §22: /Agricultural Property Loans/ -> OK (Agricultural Property Loans)",
+        "fd_wealth §22: /Intraday/ -> OK (Intraday)",
+        "fd_wealth §22: /Chit Funds/ -> OK (Chit Funds)"
+      ]
+    },
+    {
+      "key": "E1",
+      "claim": "UPI mandate bounce fee amount absent from payments SOP (only 'Levies standard bounce fee'); ₹500 bounce fee belongs to personal loans",
+      "reproduced": true,
+      "evidence": [
+        "payments_upi §4: /Levies standard bounce fee/ -> OK (Levies standard bounce fee)",
+        "payments_upi: /bounce fee.{0,40}₹\\d/ hits=0 -> OK",
+        "personal_loans §5.2: /₹500 \\+ 18% GST/ -> OK (₹500 + 18% GST)"
+      ]
+    },
+    {
+      "key": "E2",
+      "claim": "home-loan / auto-loan rates and repo rate absent",
+      "reproduced": true,
+      "evidence": [
+        "personal_loans: /\\bhome[- ]loans?\\b/ hits=0 -> OK",
+        "credit_cards: /\\bhome[- ]loans?\\b/ hits=0 -> OK",
+        "savings_account: /\\bhome[- ]loans?\\b/ hits=0 -> OK",
+        "payments_upi: /\\bhome[- ]loans?\\b/ hits=0 -> OK",
+        "fd_wealth: /\\bhome[- ]loans?\\b/ hits=0 -> OK",
+        "kyc_security: /\\bhome[- ]loans?\\b/ hits=0 -> OK",
+        "personal_loans: /\\b(?:auto|car)[- ]loans?\\b/ hits=0 -> OK",
+        "credit_cards: /\\b(?:auto|car)[- ]loans?\\b/ hits=0 -> OK",
+        "savings_account: /\\b(?:auto|car)[- ]loans?\\b/ hits=0 -> OK",
+        "payments_upi: /\\b(?:auto|car)[- ]loans?\\b/ hits=0 -> OK",
+        "fd_wealth: /\\b(?:auto|car)[- ]loans?\\b/ hits=0 -> OK",
+        "kyc_security: /\\b(?:auto|car)[- ]loans?\\b/ hits=0 -> OK",
+        "personal_loans: /\\brepo rate\\b/ hits=0 -> OK",
+        "credit_cards: /\\brepo rate\\b/ hits=0 -> OK",
+        "savings_account: /\\brepo rate\\b/ hits=0 -> OK",
+        "payments_upi: /\\brepo rate\\b/ hits=0 -> OK",
+        "fd_wealth: /\\brepo rate\\b/ hits=0 -> OK",
+        "kyc_security: /\\brepo rate\\b/ hits=0 -> OK"
+      ]
+    },
+    {
+      "key": "T7",
+      "claim": "truncated values: savings contactless '₹5,00,0' with cap '₹25,000'; loans cancellation fee '₹1,00,0'",
+      "reproduced": true,
+      "evidence": [
+        "savings_account §4: /Contactless Tap.*₹5,00,0\\b.*₹25,000/ -> OK (Contactless Tap | Daily Limit: ₹5,00,0 | Monthly Cap: ₹25,000)",
+        "personal_loans §21: /₹1,00,0 \\+ Interest accrued/ -> OK (₹1,00,0 + Interest accrued)"
+      ]
+    }
+  ],
+  "absence_probes": {
+    "home loan": [],
+    "auto / car loan": [],
+    "repo rate / live market rates": [],
+    "credit-card reward points value / expiry / redemption": [],
+    "UPI mandate bounce fee amount (payments SOP)": [],
+    "bounce fee amount anywhere (shows where ₹500 belongs)": [
+      "personal_loans §21",
+      "personal_loans §23 Q005",
+      "personal_loans §5.2"
+    ],
+    "tax advice": [],
+    "other banks' products": []
+  },
+  "dedup": {
+    "input_chunks": 1172,
+    "kept_chunks": 190,
+    "removed": 982,
+    "by_doc": {
+      "personal_loans": {
+        "before": {
+          "policy": 13,
+          "table": 2,
+          "table_row": 70,
+          "boilerplate": 14,
+          "faq": 100
+        },
+        "after": {
+          "policy": 13,
+          "table": 2,
+          "table_row": 18,
+          "boilerplate": 1,
+          "faq": 10
+        }
+      },
+      "credit_cards": {
+        "before": {
+          "policy": 9,
+          "boilerplate": 17,
+          "table_row": 78,
+          "table": 1,
+          "faq": 100
+        },
+        "after": {
+          "policy": 9,
+          "boilerplate": 1,
+          "table_row": 14,
+          "table": 1,
+          "faq": 10
+        }
+      },
+      "savings_account": {
+        "before": {
+          "policy": 3,
+          "table": 2,
+          "table_row": 82,
+          "boilerplate": 17,
+          "faq": 100
+        },
+        "after": {
+          "policy": 3,
+          "table": 2,
+          "table_row": 18,
+          "boilerplate": 1,
+          "faq": 10
+        }
+      },
+      "payments_upi": {
+        "before": {
+          "policy": 4,
+          "boilerplate": 17,
+          "table_row": 74,
+          "table": 1,
+          "faq": 100
+        },
+        "after": {
+          "policy": 4,
+          "boilerplate": 1,
+          "table_row": 10,
+          "table": 1,
+          "faq": 10
+        }
+      },
+      "fd_wealth": {
+        "before": {
+          "policy": 6,
+          "table": 1,
+          "table_row": 65,
+          "boilerplate": 15,
+          "faq": 100,
+          "annex": 1
+        },
+        "after": {
+          "policy": 6,
+          "table": 1,
+          "table_row": 9,
+          "boilerplate": 1,
+          "faq": 10,
+          "annex": 1
+        }
+      },
+      "kyc_security": {
+        "before": {
+          "policy": 7,
+          "boilerplate": 14,
+          "table_row": 56,
+          "faq": 100,
+          "annex": 3
+        },
+        "after": {
+          "policy": 7,
+          "boilerplate": 1,
+          "table_row": 4,
+          "faq": 10,
+          "annex": 1
+        }
+      }
+    },
+    "faq_answer_conflicts": []
+  },
+  "dedup_groups": [
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "boilerplate",
+      "canonical_chunk_id": "0ee7e69475ae412c",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "This section details operational compliance standard FB-OPS-007 for personal loan processing and risk monitoring.\nThe un"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "aed33c7c2363cefe",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Operational Procedures, Underwriting Rules & Standards — Metric Code: MET-PL-701 | Parameter Name: DTI Threshold | Toler"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "7752f2ab4a56719e",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Operational Procedures, Underwriting Rules & Standards — Metric Code: MET-PL-702 | Parameter Name: Salary Variance | Tol"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "65fba9feda739934",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Operational Procedures, Underwriting Rules & Standards — Metric Code: MET-PL-703 | Parameter Name: Bureau Hard Inquiries"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "83d07ce161148332",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Operational Procedures, Underwriting Rules & Standards — Metric Code: MET-PL-704 | Parameter Name: NACH Registration TAT"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "82a88a3f18954b08",
+      "canonical": "Q001",
+      "copies": 10,
+      "members": [
+        "Q001",
+        "Q011",
+        "Q021",
+        "Q031",
+        "Q041",
+        "Q051",
+        "Q061",
+        "Q071",
+        "Q081",
+        "Q091"
+      ],
+      "preview": "Q001: What is the foreclosure charge if I close my personal loan in 18 months? (Operational case 1)\nAccording to FinBase"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "68b8bf8b80885a6d",
+      "canonical": "Q002",
+      "copies": 10,
+      "members": [
+        "Q002",
+        "Q012",
+        "Q022",
+        "Q032",
+        "Q042",
+        "Q052",
+        "Q062",
+        "Q072",
+        "Q082",
+        "Q092"
+      ],
+      "preview": "Q002: What is the foreclosure charge if I close my personal loan after 26 months? (Operational case 2)\nAs per Section 4."
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "4863f9117ce12206",
+      "canonical": "Q003",
+      "copies": 10,
+      "members": [
+        "Q003",
+        "Q013",
+        "Q023",
+        "Q033",
+        "Q043",
+        "Q053",
+        "Q063",
+        "Q073",
+        "Q083",
+        "Q093"
+      ],
+      "preview": "Q003: Can I close my personal loan within 3 months of getting it? (Operational case 3)\nNo. Under Section 4.2 of the FinB"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "b08ffa330f2bb65d",
+      "canonical": "Q004",
+      "copies": 10,
+      "members": [
+        "Q004",
+        "Q014",
+        "Q024",
+        "Q034",
+        "Q044",
+        "Q054",
+        "Q064",
+        "Q074",
+        "Q084",
+        "Q094"
+      ],
+      "preview": "Q004: How much part-prepayment can I make without paying any fee? (Operational case 4)\nUnder Section 4.1, you can part-p"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "0745620031ea584b",
+      "canonical": "Q005",
+      "copies": 10,
+      "members": [
+        "Q005",
+        "Q015",
+        "Q025",
+        "Q035",
+        "Q045",
+        "Q055",
+        "Q065",
+        "Q075",
+        "Q085",
+        "Q095"
+      ],
+      "preview": "Q005: What happens if my monthly EMI bounces due to insufficient funds? (Operational case 5)\nUnder Section 5.2, an EMI b"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "f8628c03fbd001b4",
+      "canonical": "Q006",
+      "copies": 10,
+      "members": [
+        "Q006",
+        "Q016",
+        "Q026",
+        "Q036",
+        "Q046",
+        "Q056",
+        "Q066",
+        "Q076",
+        "Q086",
+        "Q096"
+      ],
+      "preview": "Q006: What is the minimum monthly income to qualify for a salaried personal loan? (Operational case 6)\nSalaried applican"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "c136a1ab0118646d",
+      "canonical": "Q007",
+      "copies": 10,
+      "members": [
+        "Q007",
+        "Q017",
+        "Q027",
+        "Q037",
+        "Q047",
+        "Q057",
+        "Q067",
+        "Q077",
+        "Q087",
+        "Q097"
+      ],
+      "preview": "Q007: What is the minimum credit score required by FinBase for personal loans? (Operational case 7)\nA minimum bureau cre"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "28bdc1aa0cdc0fbb",
+      "canonical": "Q008",
+      "copies": 10,
+      "members": [
+        "Q008",
+        "Q018",
+        "Q028",
+        "Q038",
+        "Q048",
+        "Q058",
+        "Q068",
+        "Q078",
+        "Q088",
+        "Q098"
+      ],
+      "preview": "Q008: What is the maximum personal loan amount available at FinBase? (Operational case 8)\nThe maximum loan amount is ₹15"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "88140b81a02bf528",
+      "canonical": "Q009",
+      "copies": 10,
+      "members": [
+        "Q009",
+        "Q019",
+        "Q029",
+        "Q039",
+        "Q049",
+        "Q059",
+        "Q069",
+        "Q079",
+        "Q089",
+        "Q099"
+      ],
+      "preview": "Q009: What are the available loan repayment tenures? (Operational case 9)\nFinBase offers tenure options of 12, 24, 36, 4"
+    },
+    {
+      "doc_id": "personal_loans",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "b170e9adaafb1779",
+      "canonical": "Q010",
+      "copies": 10,
+      "members": [
+        "Q010",
+        "Q020",
+        "Q030",
+        "Q040",
+        "Q050",
+        "Q060",
+        "Q070",
+        "Q080",
+        "Q090",
+        "Q100"
+      ],
+      "preview": "Q010: What processing fee is charged on loan approval? (Operational case 10)\nUnder Section 4.2, the processing fee is 1."
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "boilerplate",
+      "canonical_chunk_id": "4a265fba8969706b",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "FinBase Credit Card Operations Standard FB-CCO-004 outlines tokenization, fraud scoring, and chargeback protocols.\nEvery"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "4e27f257d5400813",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Credit Card Processing Rules & Security Standards — Rule ID: CC-SEC-401 | Category: Velocity | Parameter Check: Max tran"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "495071aedf10ce73",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Credit Card Processing Rules & Security Standards — Rule ID: CC-SEC-402 | Category: High Value | Parameter Check: Single"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "e64dac8598ee1723",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Credit Card Processing Rules & Security Standards — Rule ID: CC-SEC-403 | Category: Cross Border | Parameter Check: Inte"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "f8fd97b938a31368",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Credit Card Processing Rules & Security Standards — Rule ID: CC-SEC-404 | Category: ATM Cash | Parameter Check: Daily ca"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "2dd7897c2ce36a70",
+      "canonical": "Q001",
+      "copies": 10,
+      "members": [
+        "Q001",
+        "Q011",
+        "Q021",
+        "Q031",
+        "Q041",
+        "Q051",
+        "Q061",
+        "Q071",
+        "Q081",
+        "Q091"
+      ],
+      "preview": "Q001: What is the foreign currency markup on the FinBase Luxe card? (Card operational case 1)\nUnder Section 1.2, the for"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "8a1e78e04735bdc4",
+      "canonical": "Q002",
+      "copies": 10,
+      "members": [
+        "Q002",
+        "Q012",
+        "Q022",
+        "Q032",
+        "Q042",
+        "Q052",
+        "Q062",
+        "Q072",
+        "Q082",
+        "Q092"
+      ],
+      "preview": "Q002: What is the annual fee for the FinBase Luxe card and how can I get it waived? (Card operational case 2)\nThe annual"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "30a10ec7a8da0693",
+      "canonical": "Q003",
+      "copies": 10,
+      "members": [
+        "Q003",
+        "Q013",
+        "Q023",
+        "Q033",
+        "Q043",
+        "Q053",
+        "Q063",
+        "Q073",
+        "Q083",
+        "Q093"
+      ],
+      "preview": "Q003: Does the FinBase Neo card have any annual or joining fees? (Card operational case 3)\nNo. Under Section 1.1, the Fi"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "bb8b970ae809a952",
+      "canonical": "Q004",
+      "copies": 10,
+      "members": [
+        "Q004",
+        "Q014",
+        "Q024",
+        "Q034",
+        "Q044",
+        "Q054",
+        "Q064",
+        "Q074",
+        "Q084",
+        "Q094"
+      ],
+      "preview": "Q004: How many complimentary airport lounge visits come with the FinBase Luxe card? (Card operational case 4)\nUnder Sect"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "d750ea0277f98114",
+      "canonical": "Q005",
+      "copies": 10,
+      "members": [
+        "Q005",
+        "Q015",
+        "Q025",
+        "Q035",
+        "Q045",
+        "Q055",
+        "Q065",
+        "Q075",
+        "Q085",
+        "Q095"
+      ],
+      "preview": "Q005: What is the interest rate charged on unpaid credit card bills? (Card operational case 5)\nUnder Section 3.3, financ"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "6cee61bf7a183c6d",
+      "canonical": "Q006",
+      "copies": 10,
+      "members": [
+        "Q006",
+        "Q016",
+        "Q026",
+        "Q036",
+        "Q046",
+        "Q056",
+        "Q066",
+        "Q076",
+        "Q086",
+        "Q096"
+      ],
+      "preview": "Q006: What is the foreign currency markup fee on the FinBase Metal card? (Card operational case 6)\nUnder Section 1.3, th"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "57ed3137537af2bd",
+      "canonical": "Q007",
+      "copies": 10,
+      "members": [
+        "Q007",
+        "Q017",
+        "Q027",
+        "Q037",
+        "Q047",
+        "Q057",
+        "Q067",
+        "Q077",
+        "Q087",
+        "Q097"
+      ],
+      "preview": "Q007: Can I freeze my credit card temporarily if I lose it? (Card operational case 7)\nYes, cardholders can instantly fre"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "04aa31d117559141",
+      "canonical": "Q008",
+      "copies": 10,
+      "members": [
+        "Q008",
+        "Q018",
+        "Q028",
+        "Q038",
+        "Q048",
+        "Q058",
+        "Q068",
+        "Q078",
+        "Q088",
+        "Q098"
+      ],
+      "preview": "Q008: How is the Minimum Amount Due (MAD) calculated? (Card operational case 8)\nUnder Section 3.2, MAD is 5% of total ou"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "72905a109fcb8b62",
+      "canonical": "Q009",
+      "copies": 10,
+      "members": [
+        "Q009",
+        "Q019",
+        "Q029",
+        "Q039",
+        "Q049",
+        "Q059",
+        "Q069",
+        "Q079",
+        "Q089",
+        "Q099"
+      ],
+      "preview": "Q009: What is the cash withdrawal fee from ATMs using a FinBase credit card? (Card operational case 9)\nUnder Section 21,"
+    },
+    {
+      "doc_id": "credit_cards",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "970b10715a0977a4",
+      "canonical": "Q010",
+      "copies": 10,
+      "members": [
+        "Q010",
+        "Q020",
+        "Q030",
+        "Q040",
+        "Q050",
+        "Q060",
+        "Q070",
+        "Q080",
+        "Q090",
+        "Q100"
+      ],
+      "preview": "Q010: When is credit limit enhancement reviewed? (Card operational case 10)\nUnder Section 2, credit limit enhancement el"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "boilerplate",
+      "canonical_chunk_id": "638e08604389d285",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Standard FB-SAV-OPS-004 governs account maintenance, nominee registration, and interest withholding compliance.\nEvery sa"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "466a4af75b1025e0",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Savings Account Telemetry & Operational Standards — Standard Code: SAV-OPS-401 | Service Type: POS E-commerce | Daily Li"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "160c8b80e0a9defc",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Savings Account Telemetry & Operational Standards — Standard Code: SAV-OPS-402 | Service Type: International POS | Daily"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "73b5d9ca530ea8d0",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Savings Account Telemetry & Operational Standards — Standard Code: SAV-OPS-403 | Service Type: Contactless Tap | Daily L"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "426b61846ed88a70",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Savings Account Telemetry & Operational Standards — Standard Code: SAV-OPS-404 | Service Type: Cash Deposit Partner | Da"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "f9711038dbede683",
+      "canonical": "Q001",
+      "copies": 10,
+      "members": [
+        "Q001",
+        "Q011",
+        "Q021",
+        "Q031",
+        "Q041",
+        "Q051",
+        "Q061",
+        "Q071",
+        "Q081",
+        "Q091"
+      ],
+      "preview": "Q001: What is the minimum balance required for a FinBase Digital Savings Account? (Operational inquiry 1)\nUnder Section "
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "25c1f20f16f644e9",
+      "canonical": "Q002",
+      "copies": 10,
+      "members": [
+        "Q002",
+        "Q012",
+        "Q022",
+        "Q032",
+        "Q042",
+        "Q052",
+        "Q062",
+        "Q072",
+        "Q082",
+        "Q092"
+      ],
+      "preview": "Q002: What interest rate do I get if my account balance is ₹5,00,000? (Operational inquiry 2)\nUnder Section 2, the first"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "bd099eefbc384f56",
+      "canonical": "Q003",
+      "copies": 10,
+      "members": [
+        "Q003",
+        "Q013",
+        "Q023",
+        "Q033",
+        "Q043",
+        "Q053",
+        "Q063",
+        "Q073",
+        "Q083",
+        "Q093"
+      ],
+      "preview": "Q003: What is the maximum interest rate offered on savings accounts? (Operational inquiry 3)\nUnder Section 2, balances e"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "7a939ce5d07f887e",
+      "canonical": "Q004",
+      "copies": 10,
+      "members": [
+        "Q004",
+        "Q014",
+        "Q024",
+        "Q034",
+        "Q044",
+        "Q054",
+        "Q064",
+        "Q074",
+        "Q084",
+        "Q094"
+      ],
+      "preview": "Q004: How many free ATM withdrawals are available each month? (Operational inquiry 4)\nUnder Section 3, customers receive"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "eb23ee5c9ea2db2e",
+      "canonical": "Q005",
+      "copies": 10,
+      "members": [
+        "Q005",
+        "Q015",
+        "Q025",
+        "Q035",
+        "Q045",
+        "Q055",
+        "Q065",
+        "Q075",
+        "Q085",
+        "Q095"
+      ],
+      "preview": "Q005: Are IMPS or NEFT fund transfers chargeable? (Operational inquiry 5)\nNo. Under Section 3, all digital IMPS, NEFT, a"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "5cf354c4324c332a",
+      "canonical": "Q006",
+      "copies": 10,
+      "members": [
+        "Q006",
+        "Q016",
+        "Q026",
+        "Q036",
+        "Q046",
+        "Q056",
+        "Q066",
+        "Q076",
+        "Q086",
+        "Q096"
+      ],
+      "preview": "Q006: What is the daily transaction limit for UPI payments? (Operational inquiry 6)\nUnder Section 3, the standard daily "
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "c325df6b8d413441",
+      "canonical": "Q007",
+      "copies": 10,
+      "members": [
+        "Q007",
+        "Q017",
+        "Q027",
+        "Q037",
+        "Q047",
+        "Q057",
+        "Q067",
+        "Q077",
+        "Q087",
+        "Q097"
+      ],
+      "preview": "Q007: When is savings account interest credited? (Operational inquiry 7)\nUnder Section 2, interest is credited quarterly"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "8ea26219683227a8",
+      "canonical": "Q008",
+      "copies": 10,
+      "members": [
+        "Q008",
+        "Q018",
+        "Q028",
+        "Q038",
+        "Q048",
+        "Q058",
+        "Q068",
+        "Q078",
+        "Q088",
+        "Q098"
+      ],
+      "preview": "Q008: What is the cost of the virtual debit card? (Operational inquiry 8)\nThe virtual debit card is 100% free and genera"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "666c6a5f46faaa5f",
+      "canonical": "Q009",
+      "copies": 10,
+      "members": [
+        "Q009",
+        "Q019",
+        "Q029",
+        "Q039",
+        "Q049",
+        "Q059",
+        "Q069",
+        "Q079",
+        "Q089",
+        "Q099"
+      ],
+      "preview": "Q009: Can I request a physical debit card? (Operational inquiry 9)\nYes, a physical debit card can be ordered via the app"
+    },
+    {
+      "doc_id": "savings_account",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "3e70ade95f6cafe7",
+      "canonical": "Q010",
+      "copies": 10,
+      "members": [
+        "Q010",
+        "Q020",
+        "Q030",
+        "Q040",
+        "Q050",
+        "Q060",
+        "Q070",
+        "Q080",
+        "Q090",
+        "Q100"
+      ],
+      "preview": "Q010: Is there any fee for closing my savings account? (Operational inquiry 10)\nNo, FinBase does not levy any account cl"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "boilerplate",
+      "canonical_chunk_id": "33d136651836bb89",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Payment SOP FB-PAY-MEC-004 details reconciliation across NPCI switches, partner bank sponsor gateways, and settlement no"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "3b1416decbed080a",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Payment Gateway Mechanics & Settlement Standards — Protocol ID: PAY-ERR-401 | Response Code: U16 | System Meaning: Risk "
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "4fc81738fecf99ba",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Payment Gateway Mechanics & Settlement Standards — Protocol ID: PAY-ERR-402 | Response Code: U30 | System Meaning: Benef"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "75be5e8bfa9bfb44",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Payment Gateway Mechanics & Settlement Standards — Protocol ID: PAY-ERR-403 | Response Code: U69 | System Meaning: NPCI "
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "bda0a39cfabc12b6",
+      "canonical": "Section 4",
+      "copies": 17,
+      "members": [
+        "Section 4",
+        "Section 5",
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Payment Gateway Mechanics & Settlement Standards — Protocol ID: PAY-ERR-404 | Response Code: U88 | System Meaning: Manda"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "0c9a8d66c92eaeaa",
+      "canonical": "Q001",
+      "copies": 10,
+      "members": [
+        "Q001",
+        "Q011",
+        "Q021",
+        "Q031",
+        "Q041",
+        "Q051",
+        "Q061",
+        "Q071",
+        "Q081",
+        "Q091"
+      ],
+      "preview": "Q001: My UPI transaction failed but money was deducted. When will I receive a refund? (Payment incident case 1)\nUnder Se"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "20b9db54e573fe78",
+      "canonical": "Q002",
+      "copies": 10,
+      "members": [
+        "Q002",
+        "Q012",
+        "Q022",
+        "Q032",
+        "Q042",
+        "Q052",
+        "Q062",
+        "Q072",
+        "Q082",
+        "Q092"
+      ],
+      "preview": "Q002: What compensation is payable if my failed transaction refund is delayed? (Payment incident case 2)\nUnder Section 2"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "6d5884a16d4a41e9",
+      "canonical": "Q003",
+      "copies": 10,
+      "members": [
+        "Q003",
+        "Q013",
+        "Q023",
+        "Q033",
+        "Q043",
+        "Q053",
+        "Q063",
+        "Q073",
+        "Q083",
+        "Q093"
+      ],
+      "preview": "Q003: What is the UPI transfer limit during the first 24 hours of resetting my PIN? (Payment incident case 3)\nUnder Sect"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "d77b842be373ae21",
+      "canonical": "Q004",
+      "copies": 10,
+      "members": [
+        "Q004",
+        "Q014",
+        "Q024",
+        "Q034",
+        "Q044",
+        "Q054",
+        "Q064",
+        "Q074",
+        "Q084",
+        "Q094"
+      ],
+      "preview": "Q004: What is the standard daily transaction limit for UPI payments? (Payment incident case 4)\nUnder Section 1, the dail"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "06642069ee5b1dea",
+      "canonical": "Q005",
+      "copies": 10,
+      "members": [
+        "Q005",
+        "Q015",
+        "Q025",
+        "Q035",
+        "Q045",
+        "Q055",
+        "Q065",
+        "Q075",
+        "Q085",
+        "Q095"
+      ],
+      "preview": "Q005: How do I raise a dispute for an unauthorized debit on my account? (Payment incident case 5)\nUnder Section 3, you c"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "4818b19a4cf66039",
+      "canonical": "Q006",
+      "copies": 10,
+      "members": [
+        "Q006",
+        "Q016",
+        "Q026",
+        "Q036",
+        "Q046",
+        "Q056",
+        "Q066",
+        "Q076",
+        "Q086",
+        "Q096"
+      ],
+      "preview": "Q006: When do I get provisional credit for a disputed merchant transaction? (Payment incident case 6)\nUnder Section 3, e"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "a2732d4981c446b1",
+      "canonical": "Q007",
+      "copies": 10,
+      "members": [
+        "Q007",
+        "Q017",
+        "Q027",
+        "Q037",
+        "Q047",
+        "Q057",
+        "Q067",
+        "Q077",
+        "Q087",
+        "Q097"
+      ],
+      "preview": "Q007: Can I cancel a completed UPI payment? (Payment incident case 7)\nNo. UPI transactions are instant and irrevocable o"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "aacece3596010375",
+      "canonical": "Q008",
+      "copies": 10,
+      "members": [
+        "Q008",
+        "Q018",
+        "Q028",
+        "Q038",
+        "Q048",
+        "Q058",
+        "Q068",
+        "Q078",
+        "Q088",
+        "Q098"
+      ],
+      "preview": "Q008: Why did my UPI payment fail with response code U69? (Payment incident case 8)\nResponse code U69 indicates a tempor"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "8d3f7a6c947f4713",
+      "canonical": "Q009",
+      "copies": 10,
+      "members": [
+        "Q009",
+        "Q019",
+        "Q029",
+        "Q039",
+        "Q049",
+        "Q059",
+        "Q069",
+        "Q079",
+        "Q089",
+        "Q099"
+      ],
+      "preview": "Q009: Does FinBase charge any fee for UPI transactions? (Payment incident case 9)\nNo, FinBase does not charge any fee fo"
+    },
+    {
+      "doc_id": "payments_upi",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "b717968437d69856",
+      "canonical": "Q010",
+      "copies": 10,
+      "members": [
+        "Q010",
+        "Q020",
+        "Q030",
+        "Q040",
+        "Q050",
+        "Q060",
+        "Q070",
+        "Q080",
+        "Q090",
+        "Q100"
+      ],
+      "preview": "Q010: What is the maximum limit for a single UPI payment? (Payment incident case 10)\nStandard maximum limit per transact"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "boilerplate",
+      "canonical_chunk_id": "0c492481c48330d5",
+      "canonical": "Section 6",
+      "copies": 15,
+      "members": [
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Standard FB-WLTH-006 details customer risk profiling, asset allocation rebalancing, and SEBI compliance guidelines.\nAll "
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "7d488738e9308bec",
+      "canonical": "Section 6",
+      "copies": 15,
+      "members": [
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Wealth Portfolio Risk & Asset Management Standards — Asset Class: Large Cap Equity MF | Min Investment: ₹100 SIP | Liqui"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "81a0864c612dc679",
+      "canonical": "Section 6",
+      "copies": 15,
+      "members": [
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Wealth Portfolio Risk & Asset Management Standards — Asset Class: Overnight Liquid Fund | Min Investment: ₹500 Lump | Li"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "f3aa749aea97150e",
+      "canonical": "Section 6",
+      "copies": 15,
+      "members": [
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Wealth Portfolio Risk & Asset Management Standards — Asset Class: 24K Digital Gold | Min Investment: ₹10 | Liquidity TAT"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "01ec1c7bb5adc0cd",
+      "canonical": "Section 6",
+      "copies": 15,
+      "members": [
+        "Section 6",
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Wealth Portfolio Risk & Asset Management Standards — Asset Class: Fixed Deposit (1-2 Yr) | Min Investment: ₹1,000 | Liqu"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "8f8f6aa7542d55fb",
+      "canonical": "Q001",
+      "copies": 10,
+      "members": [
+        "Q001",
+        "Q011",
+        "Q021",
+        "Q031",
+        "Q041",
+        "Q051",
+        "Q061",
+        "Q071",
+        "Q081",
+        "Q091"
+      ],
+      "preview": "Q001: What is the interest rate for senior citizens on a 1-year Fixed Deposit? (Wealth product query 1)\nUnder Section 1,"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "55e95fb5630d3e79",
+      "canonical": "Q002",
+      "copies": 10,
+      "members": [
+        "Q002",
+        "Q012",
+        "Q022",
+        "Q032",
+        "Q042",
+        "Q052",
+        "Q062",
+        "Q072",
+        "Q082",
+        "Q092"
+      ],
+      "preview": "Q002: What penalty is charged if I break my Fixed Deposit before maturity? (Wealth product query 2)\nUnder Section 2, a p"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "ecdb32f24de7421e",
+      "canonical": "Q003",
+      "copies": 10,
+      "members": [
+        "Q003",
+        "Q013",
+        "Q023",
+        "Q033",
+        "Q043",
+        "Q053",
+        "Q063",
+        "Q073",
+        "Q083",
+        "Q093"
+      ],
+      "preview": "Q003: How can I avoid TDS deduction on my fixed deposit interest earnings? (Wealth product query 3)\nUnder Section 3, eli"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "d036bbf9df7cc2e8",
+      "canonical": "Q004",
+      "copies": 10,
+      "members": [
+        "Q004",
+        "Q014",
+        "Q024",
+        "Q034",
+        "Q044",
+        "Q054",
+        "Q064",
+        "Q074",
+        "Q084",
+        "Q094"
+      ],
+      "preview": "Q004: What is the minimum amount required to start a Mutual Fund SIP? (Wealth product query 4)\nUnder Section 4, you can "
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "61dc62fff8477536",
+      "canonical": "Q005",
+      "copies": 10,
+      "members": [
+        "Q005",
+        "Q015",
+        "Q025",
+        "Q035",
+        "Q045",
+        "Q055",
+        "Q065",
+        "Q075",
+        "Q085",
+        "Q095"
+      ],
+      "preview": "Q005: What is the minimum amount to buy digital gold on FinBase? (Wealth product query 5)\nUnder Section 5, you can purch"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "cf0610c6cde0b254",
+      "canonical": "Q006",
+      "copies": 10,
+      "members": [
+        "Q006",
+        "Q016",
+        "Q026",
+        "Q036",
+        "Q046",
+        "Q056",
+        "Q066",
+        "Q076",
+        "Q086",
+        "Q096"
+      ],
+      "preview": "Q006: Does FinBase offer cryptocurrency trading like Bitcoin or Ethereum? (Wealth product query 6)\nNo. Under Section 22,"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "baf8cae230467811",
+      "canonical": "Q007",
+      "copies": 10,
+      "members": [
+        "Q007",
+        "Q017",
+        "Q027",
+        "Q037",
+        "Q047",
+        "Q057",
+        "Q067",
+        "Q077",
+        "Q087",
+        "Q097"
+      ],
+      "preview": "Q007: Can I apply for a loan against agricultural farmland? (Wealth product query 7)\nNo. Under Section 22, FinBase does "
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "444183cb6b39294d",
+      "canonical": "Q008",
+      "copies": 10,
+      "members": [
+        "Q008",
+        "Q018",
+        "Q028",
+        "Q038",
+        "Q048",
+        "Q058",
+        "Q068",
+        "Q078",
+        "Q088",
+        "Q098"
+      ],
+      "preview": "Q008: Does FinBase give intraday stock market tips or options trading advice? (Wealth product query 8)\nNo. Under Section"
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "42b5e322c13461fe",
+      "canonical": "Q009",
+      "copies": 10,
+      "members": [
+        "Q009",
+        "Q019",
+        "Q029",
+        "Q039",
+        "Q049",
+        "Q059",
+        "Q069",
+        "Q079",
+        "Q089",
+        "Q099"
+      ],
+      "preview": "Q009: What is the maximum amount I can deposit in a single Fixed Deposit? (Wealth product query 9)\nUnder Section 1, the "
+    },
+    {
+      "doc_id": "fd_wealth",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "c31a368442d1b096",
+      "canonical": "Q010",
+      "copies": 10,
+      "members": [
+        "Q010",
+        "Q020",
+        "Q030",
+        "Q040",
+        "Q050",
+        "Q060",
+        "Q070",
+        "Q080",
+        "Q090",
+        "Q100"
+      ],
+      "preview": "Q010: Are deposits on FinBase insured? (Wealth product query 10)\nYes, deposits booked with our RBI-scheduled partner ban"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "boilerplate",
+      "canonical_chunk_id": "dc42e8e57b0ab230",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Information Security Standard FB-SEC-STD-007 mandates AES-256 encryption at rest and TLS 1.3 encryption in transit.\nAll "
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "ad30ceaa6a3cb50c",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Information Security Architecture & Telemetry Standards — Security Layer: Data at Rest | Standard Implemented: AES-256 G"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "6bf13a34d7cde3ce",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Information Security Architecture & Telemetry Standards — Security Layer: Data in Transit | Standard Implemented: TLS 1."
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "2dfc64e16c0f7d98",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Information Security Architecture & Telemetry Standards — Security Layer: Mobile App VAPT | Standard Implemented: Static"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "table_row",
+      "canonical_chunk_id": "06ce69434c834033",
+      "canonical": "Section 7",
+      "copies": 14,
+      "members": [
+        "Section 7",
+        "Section 8",
+        "Section 9",
+        "Section 10",
+        "Section 11",
+        "Section 12",
+        "Section 13",
+        "Section 14",
+        "Section 15",
+        "Section 16",
+        "Section 17",
+        "Section 18",
+        "Section 19",
+        "Section 20"
+      ],
+      "preview": "Information Security Architecture & Telemetry Standards — Security Layer: Database Access | Standard Implemented: Role B"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "b84f8c71259d66b0",
+      "canonical": "Q001",
+      "copies": 10,
+      "members": [
+        "Q001",
+        "Q011",
+        "Q021",
+        "Q031",
+        "Q041",
+        "Q051",
+        "Q061",
+        "Q071",
+        "Q081",
+        "Q091"
+      ],
+      "preview": "Q001: What documents are required to complete Video KYC verification? (Security case 1)\nUnder Section 3, you need your o"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "26a956f3e03b197a",
+      "canonical": "Q002",
+      "copies": 10,
+      "members": [
+        "Q002",
+        "Q012",
+        "Q022",
+        "Q032",
+        "Q042",
+        "Q052",
+        "Q062",
+        "Q072",
+        "Q082",
+        "Q092"
+      ],
+      "preview": "Q002: What are the operating hours for Video KYC agents? (Security case 2)\nUnder Section 3, Video KYC agents are availab"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "7697003bb9fd32a4",
+      "canonical": "Q003",
+      "copies": 10,
+      "members": [
+        "Q003",
+        "Q013",
+        "Q023",
+        "Q033",
+        "Q043",
+        "Q053",
+        "Q063",
+        "Q073",
+        "Q083",
+        "Q093"
+      ],
+      "preview": "Q003: When does an account become dormant due to inactivity? (Security case 3)\nUnder Section 4, an account becomes Inact"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "134a787c74abd411",
+      "canonical": "Q004",
+      "copies": 10,
+      "members": [
+        "Q004",
+        "Q014",
+        "Q024",
+        "Q034",
+        "Q044",
+        "Q054",
+        "Q064",
+        "Q074",
+        "Q084",
+        "Q094"
+      ],
+      "preview": "Q004: What is the customer liability policy if fraud is reported within 3 days? (Security case 4)\nUnder Section 5, custo"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "9ea54426a0b24e0a",
+      "canonical": "Q005",
+      "copies": 10,
+      "members": [
+        "Q005",
+        "Q015",
+        "Q025",
+        "Q035",
+        "Q045",
+        "Q055",
+        "Q065",
+        "Q075",
+        "Q085",
+        "Q095"
+      ],
+      "preview": "Q005: What is the emergency helpline number to report fraud or freeze my cards? (Security case 5)\nUnder Section 6, the 2"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "bf06aa5cd242ab3a",
+      "canonical": "Q006",
+      "copies": 10,
+      "members": [
+        "Q006",
+        "Q016",
+        "Q026",
+        "Q036",
+        "Q046",
+        "Q056",
+        "Q066",
+        "Q076",
+        "Q086",
+        "Q096"
+      ],
+      "preview": "Q006: What Officially Valid Documents (OVD) are accepted for KYC? (Security case 6)\nUnder Section 2, FinBase accepts 5 O"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "c9d6413eb8ab1a8e",
+      "canonical": "Q007",
+      "copies": 10,
+      "members": [
+        "Q007",
+        "Q017",
+        "Q027",
+        "Q037",
+        "Q047",
+        "Q057",
+        "Q067",
+        "Q077",
+        "Q087",
+        "Q097"
+      ],
+      "preview": "Q007: What is the transaction limit on a Minimum KYC account? (Security case 7)\nUnder Section 1, Minimum KYC accounts ha"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "dd3e017a797a92a6",
+      "canonical": "Q008",
+      "copies": 10,
+      "members": [
+        "Q008",
+        "Q018",
+        "Q028",
+        "Q038",
+        "Q048",
+        "Q058",
+        "Q068",
+        "Q078",
+        "Q088",
+        "Q098"
+      ],
+      "preview": "Q008: Can I complete Video KYC using a scanned soft copy of my PAN card? (Security case 8)\nNo. Under Section 3, you must"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "ca5e4b02dc0a0efd",
+      "canonical": "Q009",
+      "copies": 10,
+      "members": [
+        "Q009",
+        "Q019",
+        "Q029",
+        "Q039",
+        "Q049",
+        "Q059",
+        "Q069",
+        "Q079",
+        "Q089",
+        "Q099"
+      ],
+      "preview": "Q009: How can I reactivate my dormant bank account? (Security case 9)\nUnder Section 4, you can reactivate your account b"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "faq",
+      "canonical_chunk_id": "0f8784f862dbdcfe",
+      "canonical": "Q010",
+      "copies": 10,
+      "members": [
+        "Q010",
+        "Q020",
+        "Q030",
+        "Q040",
+        "Q050",
+        "Q060",
+        "Q070",
+        "Q080",
+        "Q090",
+        "Q100"
+      ],
+      "preview": "Q010: When is Two-Factor Authentication (2FA) mandatory? (Security case 10)\nUnder Section 7, 2FA is mandatory for all ou"
+    },
+    {
+      "doc_id": "kyc_security",
+      "chunk_type": "annex",
+      "canonical_chunk_id": "9cd18319425d4d82",
+      "canonical": "Section KYC-EXT-001",
+      "copies": 3,
+      "members": [
+        "Section KYC-EXT-001",
+        "Section KYC-EXT-002",
+        "Section KYC-EXT-003"
+      ],
+      "preview": "This regulatory annexure establishes compliance benchmark FB-STD-KYC-0001 under the FinBase Master Governance Framework."
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "conditions": {
+      "faq_exactly_100_per_doc": true,
+      "no_glyph_residual": true,
+      "no_markdown_or_toc_residual": true,
+      "missing_sections_detected": true,
+      "conflicts_detected": true,
+      "suspect_values_detected": true,
+      "all_prompt_expectations_reproduced": true
+    }
+  }
+}

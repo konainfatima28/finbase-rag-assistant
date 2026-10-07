@@ -1,0 +1,34 @@
+{
+  "answer_uncached": {
+    "p50_ms": 3513.4,
+    "min_ms": 2968.8,
+    "max_ms": 3926.8,
+    "cost_usd_mean": 0.000839,
+    "cached_runs": 0,
+    "answerable": true
+  },
+  "answer_cache_hit": {
+    "p50_ms": 0.1,
+    "min_ms": 0.1,
+    "max_ms": 0.1,
+    "cost_usd_mean": 0.0,
+    "cached_runs": 5,
+    "answerable": true
+  },
+  "gate_abstain_no_llm": {
+    "p50_ms": 1393.1,
+    "min_ms": 1367.4,
+    "max_ms": 1979.3,
+    "cost_usd_mean": 0.0,
+    "cached_runs": 0,
+    "answerable": false
+  },
+  "follow_up_with_rewrite": {
+    "p50_ms": 4262.1,
+    "min_ms": 3918.5,
+    "max_ms": 4647.4,
+    "cost_usd_mean": 0.001166,
+    "cached_runs": 0,
+    "answerable": true
+  }
+}

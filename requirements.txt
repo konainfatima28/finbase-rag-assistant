@@ -1,0 +1,18 @@
+# Runtime dependencies (Python 3.11). Pinned; verified installable on Windows + Linux.
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
+pydantic-settings==2.15.0
+PyYAML==6.0.3
+numpy==2.4.6
+faiss-cpu==1.15.1
+FlashRank==0.2.10
+onnxruntime==1.30.0
+httpx==0.28.1
+openai==3.24.0
+structlog==26.1.0
+slowapi==0.1.10
+# Ingestion (also used by the audit). Not needed at serve time but kept in one file so Render can run audits.
+pymupdf==1.28.2
+pdfplumber==0.11.10
+python-docx==1.2.0

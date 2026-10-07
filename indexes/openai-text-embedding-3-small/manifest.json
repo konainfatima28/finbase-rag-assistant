@@ -1,0 +1,20 @@
+{
+  "embedder_provider": "openai",
+  "embedder_model": "text-embedding-3-small",
+  "dim": 1536,
+  "normalized": true,
+  "n_chunks": 190,
+  "n_vectors": 250,
+  "source_pdf_sha256s": {
+    "personal_loans": "aad9ebca565916cef8ca21134ac08dd17ddf868acae9fdb10d033e30515f167d",
+    "credit_cards": "2667daba441d92add0a299e3b99df56264875933db0ae615378211ab93af9e2b",
+    "savings_account": "4ad45e092ff07035499b8ef8a3e83a39f659e61e1a469c6920a9587a128a08cb",
+    "payments_upi": "5c7b04d0a40a8a008b21ae73e0e5377b68385a8720ebd24916cd7424c2529c05",
+    "fd_wealth": "24211b095e120204de192fcf4d052944af28ea683a26980dcd1bfdeab6b6d614",
+    "kyc_security": "37b060e471de72c6e4df3b886948b69fa2e2175ef25d7a9136553100d901ab75"
+  },
+  "chunker_version": "structure-v1.0",
+  "built_at": "2026-10-06T18:52:40+00:00",
+  "chunks_sha256": "c0a98f41bdfa4bbe88e263cbec47c8ca31aa039048371f402c338f2c3d45d1ba",
+  "content_hash": "a7c0497b9d3f8639815a4bcba99206249d1a5c3378a99840d1da9b0f9e5197c9"
+}

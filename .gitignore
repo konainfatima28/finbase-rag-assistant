@@ -1,0 +1,41 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# caches / runtime
+.cache/
+data/cache/
+logs/
+*.log
+
+# node
+web/node_modules/
+web/.next/
+web/out/
+web/coverage/
+web/playwright-report/
+web/test-results/
+web/tsconfig.tsbuildinfo
+web/next-env.d.ts
+
+# os / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# disposable development artifacts
+eval/results/check-*.json
+node_modules/

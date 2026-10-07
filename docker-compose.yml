@@ -1,0 +1,30 @@
+# Local full stack (OpenAI for chat + embeddings; retrieval runs inside the api container).
+#   cp .env.example .env   # set OPENAI_API_KEY
+#   docker compose up --build      -> web http://localhost:3000 , api http://localhost:8000/docs
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      LLM_PROVIDER: openai
+      EMBED_PROVIDER: openai
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      PORT: "8000"
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./web
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    restart: unless-stopped

@@ -1,0 +1,1062 @@
+{
+  "before": {
+    "precision": 1.0,
+    "recall": 0.4,
+    "f1": 0.5714,
+    "over_refusal": 0.0,
+    "n_unanswerable": 10.0
+  },
+  "after": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6667,
+    "over_refusal": 0.0,
+    "n_unanswerable": 10.0
+  },
+  "chosen": {
+    "weights": {
+      "rerank": 0.6,
+      "dense": 0.25,
+      "gap": 0.05,
+      "lexical": 0.1
+    },
+    "threshold": 0.22
+  },
+  "n_items": 94,
+  "per_item": [
+    {
+      "id": "pl-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9975799322128296,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9996742010116577,
+        "dense": 1.0,
+        "gap": 0.009995460510253906,
+        "lexical": 0.8571428571428571,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9891897439956665,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.7142857142857143,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9996683597564697,
+        "dense": 1.0,
+        "gap": 0.007239997386932373,
+        "lexical": 0.8571428571428571,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9995077848434448,
+        "dense": 1.0,
+        "gap": 0.7025472819805145,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9879739284515381,
+        "dense": 0.966862678527832,
+        "gap": 0.11544209718704224,
+        "lexical": 0.8,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9997159838676453,
+        "dense": 1.0,
+        "gap": 0.0004950165748596191,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-08",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9989036321640015,
+        "dense": 0.8059798081715901,
+        "gap": 0.51801797747612,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-09",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9962595701217651,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-10",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9976187348365784,
+        "dense": 1.0,
+        "gap": 0.03672337532043457,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-11",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9964487552642822,
+        "dense": 0.9989225599500867,
+        "gap": 0.01142650842666626,
+        "lexical": 0.7142857142857143,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "pl-12",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9995827078819275,
+        "dense": 1.0,
+        "gap": 0.0007693171501159668,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9975581169128418,
+        "dense": 1.0,
+        "gap": 0.002136051654815674,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9889856576919556,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9991632699966431,
+        "dense": 1.0,
+        "gap": 0.001758873462677002,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.998854398727417,
+        "dense": 1.0,
+        "gap": 0.0034020543098449707,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9985707998275757,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9996351003646851,
+        "dense": 1.0,
+        "gap": 0.0003605484962463379,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9999350309371948,
+        "dense": 1.0,
+        "gap": 0.034267961978912354,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-08",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9986469149589539,
+        "dense": 1.0,
+        "gap": 0.19687336683273315,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cc-09",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9599868655204773,
+        "dense": 1.0,
+        "gap": 0.013414263725280762,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9997203946113586,
+        "dense": 1.0,
+        "gap": 0.010732531547546387,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9890211224555969,
+        "dense": 0.8953416082594129,
+        "gap": 0.00458681583404541,
+        "lexical": 0.75,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9880056977272034,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9980244636535645,
+        "dense": 0.9498599900139703,
+        "gap": 0.03835862874984741,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9549989700317383,
+        "dense": 0.9957584804958767,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9244702458381653,
+        "dense": 0.9623714023166232,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "sv-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.976572573184967,
+        "dense": 1.0,
+        "gap": 0.006909370422363281,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9990341663360596,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9950540065765381,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.7142857142857143,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9978907704353333,
+        "dense": 1.0,
+        "gap": 0.0009388327598571777,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9969022274017334,
+        "dense": 0.8537105454338921,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9984263181686401,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9987564086914062,
+        "dense": 1.0,
+        "gap": 0.9792886078357697,
+        "lexical": 0.8,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "up-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9996064305305481,
+        "dense": 1.0,
+        "gap": 0.8546528667211533,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9951462149620056,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9972198009490967,
+        "dense": 1.0,
+        "gap": 0.0440024733543396,
+        "lexical": 0.8,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9984301924705505,
+        "dense": 1.0,
+        "gap": 0.0007440447807312012,
+        "lexical": 0.6,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9984530210494995,
+        "dense": 0.9770795769161648,
+        "gap": 0.12880492210388184,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9907246232032776,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9562622904777527,
+        "dense": 0.9475690523783366,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "fd-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9372837543487549,
+        "dense": 0.5896287229326036,
+        "gap": 0.9359435397200286,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.997344434261322,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9998306035995483,
+        "dense": 1.0,
+        "gap": 0.00016427040100097656,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9576641321182251,
+        "dense": 1.0,
+        "gap": 0.5675855875015259,
+        "lexical": 0.8,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9948940277099609,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9647872447967529,
+        "dense": 0.9059683216942681,
+        "gap": 0.08335649967193604,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9959760308265686,
+        "dense": 0.759702099694146,
+        "gap": 0.10250586271286011,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ky-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9983298182487488,
+        "dense": 1.0,
+        "gap": 0.5488439202308655,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.993636965751648,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.7142857142857143,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9172791838645935,
+        "dense": 1.0,
+        "gap": 0.2173783779144287,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.8780514001846313,
+        "dense": 0.9699509938557942,
+        "gap": 0.7641652747988701,
+        "lexical": 0.75,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9756278395652771,
+        "dense": 1.0,
+        "gap": 0.001704394817352295,
+        "lexical": 0.8888888888888888,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9209082722663879,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.856015145778656,
+        "dense": 0.8291482660505506,
+        "gap": 0.057347655296325684,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "xd-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.8109434247016907,
+        "dense": 1.0,
+        "gap": 0.21311378479003906,
+        "lexical": 0.75,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9982162117958069,
+        "dense": 0.9859467612372503,
+        "gap": 0.015983760356903076,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9913631677627563,
+        "dense": 1.0,
+        "gap": 0.006107807159423828,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.993777871131897,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.75,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9829459190368652,
+        "dense": 0.8507493866814507,
+        "gap": 0.009368479251861572,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9962270259857178,
+        "dense": 1.0,
+        "gap": 0.0008944869041442871,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.8592121005058289,
+        "dense": 0.7604952388339572,
+        "gap": 0.7815543636679649,
+        "lexical": 0.7142857142857143,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-07",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9568414688110352,
+        "dense": 1.0,
+        "gap": 0.6023121774196625,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "cf-08",
+      "answerable": true,
+      "features": {
+        "rerank": 0.5128525495529175,
+        "dense": 0.7603874206542969,
+        "gap": 0.19086113572120667,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-01",
+      "answerable": false,
+      "features": {
+        "rerank": 0.9940447211265564,
+        "dense": 1.0,
+        "gap": 0.019198894500732422,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-02",
+      "answerable": false,
+      "features": {
+        "rerank": 0.6040814518928528,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.875,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-03",
+      "answerable": false,
+      "features": {
+        "rerank": 0.0002662231563590467,
+        "dense": 0.5202001068327161,
+        "gap": 0.00020596843023668043,
+        "lexical": 0.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-04",
+      "answerable": false,
+      "features": {
+        "rerank": 0.017206616699695587,
+        "dense": 0.4101726479000515,
+        "gap": 0.01634666620520875,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-05",
+      "answerable": false,
+      "features": {
+        "rerank": 0.0030959199648350477,
+        "dense": 0.5479811032613118,
+        "gap": 0.0014088816242292523,
+        "lexical": 0.5,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-06",
+      "answerable": false,
+      "features": {
+        "rerank": 0.9978713989257812,
+        "dense": 1.0,
+        "gap": 0.029505372047424316,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-07",
+      "answerable": false,
+      "features": {
+        "rerank": 0.012709406204521656,
+        "dense": 0.4972331788804796,
+        "gap": 0.009559244615957141,
+        "lexical": 0.8333333333333334,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-08",
+      "answerable": false,
+      "features": {
+        "rerank": 0.9958087205886841,
+        "dense": 1.0,
+        "gap": 0.005654513835906982,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ab-09",
+      "answerable": false,
+      "features": {
+        "rerank": 0.8827389478683472,
+        "dense": 0.8772094779544406,
+        "gap": 0.7490852624177933,
+        "lexical": 0.8571428571428571,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "us-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9814068078994751,
+        "dense": 1.0,
+        "gap": 0.06993722915649414,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "us-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9516564607620239,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "us-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9990971088409424,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "us-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9974320530891418,
+        "dense": 0.8813072310553656,
+        "gap": 0.1371251940727234,
+        "lexical": 0.6666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "mt-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9992415904998779,
+        "dense": 1.0,
+        "gap": 0.00039505958557128906,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "mt-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9998152852058411,
+        "dense": 1.0,
+        "gap": 0.0002968907356262207,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "mt-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9997598528862,
+        "dense": 1.0,
+        "gap": 0.0011969804763793945,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "mt-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9969919919967651,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "mt-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9992746710777283,
+        "dense": 1.0,
+        "gap": 1.895427703857422e-05,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ad-01",
+      "answerable": false,
+      "features": {
+        "rerank": 1.6030668120947666e-05,
+        "dense": 0.0,
+        "gap": 2.08528945222497e-08,
+        "lexical": 0.16666666666666666,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ad-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9842554926872253,
+        "dense": 1.0,
+        "gap": 0.0,
+        "lexical": 0.8571428571428571,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ad-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.013835948891937733,
+        "dense": 0.6059252288606432,
+        "gap": 0.012071399483829737,
+        "lexical": 0.6,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ad-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.3267059624195099,
+        "dense": 0.6466591093275281,
+        "gap": 0.32137480890378356,
+        "lexical": 0.2857142857142857,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ad-05",
+      "answerable": true,
+      "features": {
+        "rerank": 0.16738437116146088,
+        "dense": 0.7335939407348633,
+        "gap": 0.09888635575771332,
+        "lexical": 0.2857142857142857,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "ad-06",
+      "answerable": true,
+      "features": {
+        "rerank": 0.24109424650669098,
+        "dense": 1.0,
+        "gap": 0.21405158191919327,
+        "lexical": 0.7142857142857143,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "gv-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.996667206287384,
+        "dense": 0.9659025139278835,
+        "gap": 0.33163535594940186,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "gv-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.8677297234535217,
+        "dense": 0.9397793875800238,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "hi-01",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9978975057601929,
+        "dense": 1.0,
+        "gap": 0.0017046928405761719,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "hi-02",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9993829727172852,
+        "dense": 0.7280060715145534,
+        "gap": 0.0,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "hi-03",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9976928234100342,
+        "dense": 1.0,
+        "gap": 0.1372619867324829,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    },
+    {
+      "id": "hi-04",
+      "answerable": true,
+      "features": {
+        "rerank": 0.9992417097091675,
+        "dense": 1.0,
+        "gap": 0.0011702179908752441,
+        "lexical": 1.0,
+        "has_rerank": 1.0
+      }
+    }
+  ]
+}

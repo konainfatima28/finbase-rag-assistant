@@ -1,0 +1,38 @@
+[
+  {
+    "doc_id": "credit_cards",
+    "doc_title": "FinBase Credit Cards Comprehensive Handbook & Cardholder Agreement",
+    "section_id": "22",
+    "title": "Reward Points Accrual and Redemption Matrix"
+  },
+  {
+    "doc_id": "savings_account",
+    "doc_title": "FinBase Digital Savings Accounts & Banking Operations Manual",
+    "section_id": "22",
+    "title": "Electronic Fund Transfer Limits and Cutoff Times"
+  },
+  {
+    "doc_id": "payments_upi",
+    "doc_title": "FinBase Payments, UPI & Refund Settlement SOP",
+    "section_id": "22",
+    "title": "Dispute Arbitration and Chargeback Workflow"
+  },
+  {
+    "doc_id": "fd_wealth",
+    "doc_title": "FinBase Fixed Deposits & Wealth Products Master Guidelines",
+    "section_id": "21",
+    "title": "Master Fixed Deposit Interest Rate Matrix"
+  },
+  {
+    "doc_id": "kyc_security",
+    "doc_title": "FinBase KYC Verification, Compliance & Security Master Document",
+    "section_id": "21",
+    "title": "Zero Liability Fraud Policy & Reporting Timelines"
+  },
+  {
+    "doc_id": "kyc_security",
+    "doc_title": "FinBase KYC Verification, Compliance & Security Master Document",
+    "section_id": "22",
+    "title": "Video KYC Operating Standards & Technical Prerequisites"
+  }
+]

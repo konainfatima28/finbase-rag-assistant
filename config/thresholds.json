@@ -1,0 +1,27 @@
+{
+  "calibrated": true,
+  "calibrated_at": "2026-10-06T18:43:55+00:00",
+  "note": "Written by `python -m eval.calibrate`: grid search maximising gate-level abstention F1 on eval/golden.jsonl with over-refusal <= 5%.",
+  "abstain_threshold": 0.22,
+  "weights": {
+    "rerank": 0.6,
+    "dense": 0.25,
+    "gap": 0.05,
+    "lexical": 0.1
+  },
+  "dense_lo": 0.2,
+  "dense_hi": 0.65,
+  "labels": {
+    "high": 0.7,
+    "medium": 0.45
+  },
+  "gate_metrics_on_golden": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6667,
+    "over_refusal": 0.0,
+    "n_unanswerable": 10.0
+  },
+  "embed_model": "text-embedding-3-small",
+  "reranker": "flashrank"
+}

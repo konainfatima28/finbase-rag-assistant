@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens: one source of truth, re-stepped (not inverted) for dark mode. */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #f1f3f9;
+  --border: #e3e6ef;
+  --ink: #111827;
+  --ink-2: #374151;
+  --muted: #5b6475;
+  --brand: #1e40af;
+  --brand-ink: #ffffff;
+  --brand-soft: #e8eefc;
+  --accent: #0f766e;
+  --good: #047857;
+  --good-soft: #e7f6ef;
+  --warn: #92400e;
+  --warn-soft: #fdf3e2;
+  --bad: #b42318;
+  --bad-soft: #fdecea;
+  --focus: #2563eb;
+  --highlight: #fff4c2;
+  --chart-1: #2a78d6; /* validated: in band, >=3:1 on light surfaces (dataviz validator) */
+}
+
+.dark {
+  --bg: #0b1020;
+  --surface: #121a2e;
+  --surface-2: #18223a;
+  --border: #26324d;
+  --ink: #eef1f8;
+  --ink-2: #cfd6e6;
+  --muted: #9aa5bd;
+  --brand: #8fb0ff;
+  --brand-ink: #0b1020;
+  --brand-soft: #1b2850;
+  --accent: #5eead4;
+  --good: #6ee7b7;
+  --good-soft: #0f2e25;
+  --warn: #fcd34d;
+  --warn-soft: #33270f;
+  --bad: #fca5a5;
+  --bad-soft: #3a1515;
+  --focus: #93b4ff;
+  --highlight: #4a3d0a;
+  --chart-1: #3987e5; /* validated against #121a2e */
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-highlight: var(--highlight);
+  --color-chart-1: var(--chart-1);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.flash-highlight {
+  animation: flash 1.6s ease-out;
+}
+@keyframes flash {
+  0% {
+    box-shadow: 0 0 0 3px var(--focus);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}

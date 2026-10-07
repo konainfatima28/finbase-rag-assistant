@@ -1,0 +1,9 @@
+# Normalise text line endings; never convert binary artifacts (the knowledge-base PDFs are hashed in the index
+# manifest, so a single changed byte would break ingest/audit verification).
+* text=auto
+*.sh text eol=lf
+*.pdf binary
+*.faiss binary
+*.sqlite binary
+*.png binary
+*.ico binary

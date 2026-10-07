@@ -1,0 +1,32 @@
+# Render Blueprint for the API (free tier: 512 MB RAM, sleeps when idle).
+# The OpenAI index under indexes/ is committed, so the build never calls OpenAI.
+services:
+  - type: web
+    name: finbase-api
+    runtime: python
+    plan: free
+    region: singapore
+    branch: main
+    buildCommand: pip install -r requirements.txt && python -m app.retrieval.warm
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips='*' --no-access-log
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: LLM_PROVIDER
+        value: openai
+      - key: EMBED_PROVIDER
+        value: openai
+      - key: OPENAI_API_KEY
+        sync: false # set in the Render dashboard; never committed
+      - key: OPENAI_CHAT_MODEL
+        value: gpt-4.1-mini
+      - key: OPENAI_EMBED_MODEL
+        value: text-embedding-3-small
+      - key: CORS_ORIGINS
+        sync: false # e.g. https://<your-app>.vercel.app,http://localhost:3000
+      - key: RATE_LIMIT
+        value: 20/minute
+      - key: LOG_LEVEL
+        value: INFO

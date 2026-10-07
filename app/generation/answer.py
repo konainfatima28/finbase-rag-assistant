@@ -56,7 +56,7 @@ from app.retrieval.context import Candidate
 from app.retrieval.gate import GateConfig
 from app.retrieval.gate import label as confidence_label
 from app.retrieval.pipeline import RetrievalResult, Retriever
-from app.safety import injection
+from app.safety import injection, intent
 from app.safety.pii import Redaction, mentions_sensitive_terms, redact
 from app.settings import Settings
 from app.text.tokenize import count_tokens, tokenize
@@ -252,6 +252,50 @@ class AnswerService:
     def unavailable_message(self) -> str:
         """Reply when the LLM provider is down."""
         return "The assistant is temporarily unavailable. Here are the most relevant FinBase documents for your question; please try again shortly."
+
+    def greeting(self, request_id: str | None = None) -> dict[str, Any]:
+        """Canned reply for a bare greeting/closing/thanks message (app.safety.intent.is_greeting):
+        no PII/injection scan, rewrite, retrieval or LLM call — answered before `prepare()` runs."""
+        return {
+            "request_id": request_id or uuid.uuid4().hex,
+            "rewritten_query": None,
+            "language": "en",
+            "notices": {"pii": False, "injection": False},
+            "conflicts": [],
+            "meta": {},
+            "evidence": {"statuses": [], "items": [], "claims": [], "unclear_values": [], "conflicts": []},
+            "cached": False,
+            "degraded": False,
+            "answer": intent.GREETING_REPLY,
+            "formatted": f"Answer: {intent.GREETING_REPLY}",
+            "answerable": True,
+            "abstain_reason": None,
+            "sources": [],
+            "related_sources": [],
+            "confidence": {
+                "score": 1.0,
+                "label": "High",
+                "retrieval": 1.0,
+                "citation_coverage": 0.0,
+                "verified_rate": 1.0,
+            },
+            "verification": {
+                "citations_valid": [],
+                "invalid_markers": [],
+                "citation_coverage": 0.0,
+                "figures": [],
+                "unverified_figures": [],
+                "repaired_truncations": [],
+                "warnings": [],
+            },
+            "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": {"rewrite": 0.0, "retrieve": 0.0, "rerank": 0.0, "generate": 0.0, "total": 0.0},
+                "model": "none",
+            },
+        }
 
     # ------------------------------------------------------------------ preparation
     async def prepare(
@@ -615,6 +659,8 @@ class AnswerService:
         self, message: str, history: Sequence[ChatMessage] = (), request_id: str | None = None
     ) -> dict[str, Any]:
         """Full answer object (one stricter retry when the model returns an uncited factual answer)."""
+        if intent.is_greeting(message):
+            return self.greeting(request_id)
         p = await self.prepare(message, history, request_id)
         if p.retrieval.confidence.abstain or not p.retrieval.blocks:
             return self.not_found(p, "low_retrieval_confidence")
@@ -661,6 +707,22 @@ class AnswerService:
         Output is buffered until it cannot be the NOT_FOUND sentinel, so the sentinel never reaches the UI.
         The `done` event carries the authoritative, post-processed answer.
         """
+        if intent.is_greeting(message):
+            result = self.greeting(request_id)
+            yield Event(
+                "meta",
+                {
+                    "request_id": result["request_id"],
+                    "rewritten_query": None,
+                    "language": result["language"],
+                    "retrieval_confidence": None,
+                    "notices": result["notices"],
+                    "retrieval": {},
+                },
+            )
+            async for event in self._emit_final(result, streamed=False):
+                yield event
+            return
         p = await self.prepare(message, history, request_id)
         yield Event("meta", self._meta(p))
         if p.retrieval.confidence.abstain or not p.retrieval.blocks:

@@ -2,7 +2,7 @@
 
 A FinTech customer-support assistant for the fictional company **FinBase**. It answers **only** from six official policy PDFs, cites the exact **document, section and page** for every fact, flags conflicting or garbled source values, and says clearly when something is not in the knowledge base.
 
-- **Live demo:** _<Vercel URL — add after deployment>_ · **API:** _<Render URL — add after deployment>_ · **Screenshot:** _add after deployment_
+- **Live demo:** https://finbase-rag-assistant.vercel.app · **API:** https://finbase-api.onrender.com · **Screenshot:** _add after deployment_
 - Stack: Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
 - Status and evidence: `docs/BUILD_LOG.md` · requirement tracking: `docs/REQUIREMENTS_CHECKLIST.md` · design decisions: `docs/DECISIONS.md`
 

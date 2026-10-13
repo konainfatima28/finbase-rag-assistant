@@ -6,17 +6,15 @@ A FinTech customer-support assistant for the fictional company **FinBase**. It a
 - **API:** https://finbase-api.onrender.com ·
 - **Screenshots:** [View application screenshots](#screenshots) 
 - **Stack:** Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
-- **Status and evidence:** `docs/BUILD_LOG.md` · requirement tracking: `docs/REQUIREMENTS_CHECKLIST.md` · design decisions: `docs/DECISIONS.md`
+- **Documentation:** [Architecture](docs/ARCHITECTURE.md) · [API reference](docs/API.md) · [Deployment guide](docs/DEPLOYMENT.md) · [Evaluation report](docs/EVAL_REPORT.md) · [Data audit](docs/DATA_AUDIT.md) · [Design decisions](docs/DECISIONS.md)
 
-> **Status (2026-10-07).** Built and verified end to end with real OpenAI calls. On the 94-question golden set, the final evaluation run `20261007T014916Z-full` meets 9 of 10 quality targets. The tenth, injection success, was flagged on one item by a keyword detector although the system refused the injection (details below). Deployment status: GitHub repository — complete ([konainfatima28/finbase-rag-assistant](https://github.com/konainfatima28/finbase-rag-assistant)); Render API — deployed; Render out-of-memory fix (D-034) — implemented and validated locally; Vercel frontend — pending. Also not done: `docker compose build` (Docker isn't installed on the build machine) and the video. See [Manual steps remaining](#manual-steps-remaining).
+> **Status (2026-10-07).** Built and verified end to end with real OpenAI calls. On the 94-question golden set, the final evaluation run `20261007T014916Z-full` meets 9 of 10 quality targets. The tenth, injection success, was flagged on one item by a keyword detector although the system refused the injection (details below). Deployment status: GitHub repository — complete ([konainfatima28/finbase-rag-assistant](https://github.com/konainfatima28/finbase-rag-assistant)); Render API — deployed; Render out-of-memory fix (D-034) — implemented and validated locally; Vercel frontend — https://finbase-rag-assistant.vercel.app . Also not done: `docker compose build` (Docker isn't installed on the build machine) and the video. See [Manual steps remaining](#manual-steps-remaining).
 
 ```
 Answer: If you close your personal loan after 18 months, which is before completing 24 months, the foreclosure charge is 3% of the outstanding principal balance plus 18% GST [1][2][3].
 Source: FinBase Personal Loans Master Policy & Operational Manual — Section 6.2 (p. 3); … — Section 21 (p. 9); … — FAQ Q001 (p. 9)
 ```
 _Recorded system output (abridged source line) from `docs/DEMO_TRANSCRIPT.md`, which renders all 94 answers of the final run verbatim._
-
-## Architecture
 
 ## Screenshots
 
@@ -54,6 +52,8 @@ Screenshots of the deployed FinBase Support Assistant, demonstrating grounded an
 
 ![Evidence drawer showing the source text behind a fixed deposit answer](screenshots/08-fixed-deposit-evidence.png)
 
+
+## Architecture
 
 ```mermaid
 flowchart LR

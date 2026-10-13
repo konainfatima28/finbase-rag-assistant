@@ -2,8 +2,8 @@
 
 A FinTech customer-support assistant for the fictional company **FinBase**. It answers **only** from six official policy PDFs, cites the exact **document, section and page** for every fact, flags conflicting or garbled source values, and says clearly when something is not in the knowledge base.
 
-- **Live demo:** https://finbase-rag-assistant.vercel.app ·
-- **API:** https://finbase-api.onrender.com ·
+- **Live demo:** https://finbase-rag-assistant.vercel.app
+- **API:** https://finbase-api.onrender.com
 - **Screenshots:** [View application screenshots](#screenshots) 
 - **Stack:** Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
 - **Documentation:** [Architecture](docs/ARCHITECTURE.md) · [API reference](docs/API.md) · [Deployment guide](docs/DEPLOYMENT.md) · [Evaluation report](docs/EVAL_REPORT.md) · [Data audit](docs/DATA_AUDIT.md) · [Design decisions](docs/DECISIONS.md)
@@ -227,7 +227,7 @@ python -m eval.run --provider openai --judge openai                 # full pipel
 
 ## Evaluation results
 
-Golden set: 104 hand-verified items across the evaluation categories. Latest full run: **`20261007T205501Z-full`**. Full pipeline evaluation uses `gpt-4.1-mini` and `text-embedding-3-small`, with an LLM judge. See the [Evaluation Report](docs/EVAL_REPORT.md) for metrics, methodology, and failure analysis.
+Golden set: 104 hand-verified items across the evaluation categories. Latest full run: **`20261007T205501Z-full`**. The evaluation uses `gpt-4.1-mini` and `text-embedding-3-small`, with an LLM judge. See the [Evaluation Report](docs/EVAL_REPORT.md) for metrics, methodology, and failure analysis.
 
 | metric | target | result |
 |---|---|---|
@@ -268,13 +268,13 @@ Final run `20261007T205501Z-full` (real OpenAI calls, local Windows CPU):
 | generation p50 / p95 | **1.50 s / 3.27 s** |
 | cost per question | **$0.0009** (~2,055 tokens) |
 
-**Latency.** Latency rose during the post-review changes (Phases 1–3; run history in `docs/EVAL_REPORT.md` §4), almost entirely in the CPU reranker. Scoring candidates in batches of 4 (D-034) halved the rerank time (p50 2.98 s → 1.46 s) because smaller batches carry less padding. The reranker is still the largest stage. A further lever is `RERANKER=none`, which keeps recall@5 at 0.958 and MRR at 0.933 with zero rerank cost; the faster TinyBERT reranker scored *below* no-reranker on MRR. Index build: 250 embeddings ≈ **$0.0006**; a re-ingest makes zero API calls (disk cache).
+**Latency optimization.** Historical profiling showed that the CPU reranker was the main latency bottleneck. Scoring candidates in batches of 4 (D-034) reduced reranking time by reducing padding overhead. Disabling reranking (`RERANKER=none`) is another speed-versus-quality trade-off: earlier measurements reported Recall@5 of 0.958 and MRR of 0.933. The latest full-run latency measurements are shown in the table above. Index build: 250 embeddings cost approximately **$0.0006**; re-ingestion makes no additional API calls when the disk cache is populated.
 
 **Memory (Render free tier: 512 MB).** The first deployment ran out of memory during `/api/chat`, for two reasons:
 - the reranker scored all 12 candidates in one padded batch, a transient of up to +317 MB;
 - the start command let uvicorn take its worker count from Render's `WEB_CONCURRENCY`, so several full copies of the app could run.
 
-Fix (D-034): `RERANK_BATCH_SIZE=4`, `--workers 1`, and `OMP_NUM_THREADS=1` / `OPENBLAS_NUM_THREADS=1` / `MALLOC_ARENA_MAX=2` in `render.yaml`. A broad question still exceeded the limit on Linux, so `render.yaml` also fixes glibc's allocator thresholds (`MALLOC_MMAP_THRESHOLD_` / `MALLOC_TRIM_THRESHOLD_` = 131072, D-035). Large transient reranker tensors are then returned to the OS instead of being retained. Measured locally (one process, same request sequence including broad, concurrent and dashboard requests): steady state ~208 MB, **peak 487 MB → 300 MB**. Earlier, with onnxruntime defaults, RSS had reached 849 MB after six reranks; the arena is disabled (`app/retrieval/rerank.py`). Linux RSS should be of the same order. Check Render's Metrics → Memory after deploying.
+Fix (D-034): `RERANK_BATCH_SIZE=4`, `--workers 1`, and `OMP_NUM_THREADS=1` / `OPENBLAS_NUM_THREADS=1` / `MALLOC_ARENA_MAX=2` in `render.yaml`. A broad question still exceeded the limit on Linux, so `render.yaml` also fixes glibc's allocator thresholds (`MALLOC_MMAP_THRESHOLD_` / `MALLOC_TRIM_THRESHOLD_` = 131072, D-035). Large transient reranker tensors are then returned to the OS instead of being retained. Measured locally (one process, same request sequence including broad, concurrent and dashboard requests): steady state ~208 MB, **peak 487 MB → 300 MB**. Earlier, with onnxruntime defaults, RSS had reached 849 MB after six reranks; the arena is disabled (`app/retrieval/rerank.py`). Linux RSS should be of the same order. After the latest deployment, verify actual memory usage in Render's Metrics → Memory and compare it with the local measurements above.
 
 ## Security & privacy
 

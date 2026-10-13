@@ -8,13 +8,13 @@ A FinTech customer-support assistant for the fictional company **FinBase**. It a
 - **Stack:** Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
 - **Documentation:** [Architecture](docs/ARCHITECTURE.md) · [API reference](docs/API.md) · [Deployment guide](docs/DEPLOYMENT.md) · [Evaluation report](docs/EVAL_REPORT.md) · [Data audit](docs/DATA_AUDIT.md) · [Design decisions](docs/DECISIONS.md)
 
-> **Status (2026-10-07).** Built and verified end to end with real OpenAI calls. On the 94-question golden set, the final evaluation run `20261007T014916Z-full` meets 9 of 10 quality targets. The tenth, injection success, was flagged on one item by a keyword detector although the system refused the injection (details below). Deployment status: GitHub repository — complete ([konainfatima28/finbase-rag-assistant](https://github.com/konainfatima28/finbase-rag-assistant)); Render API — deployed; Render out-of-memory fix (D-034) — implemented and validated locally; Vercel frontend — https://finbase-rag-assistant.vercel.app . Also not done: `docker compose build` (Docker isn't installed on the build machine) and the video. See [Manual steps remaining](#manual-steps-remaining).
+> **Status (2026-10-13).** FinBase Support Assistant is deployed end to end: the frontend is hosted on Vercel, and the FastAPI backend is hosted on Render. The system uses OpenAI for answer generation and embeddings, with hybrid retrieval, reranking, evidence-based citations, and safeguards against unsupported answers. The latest evaluation results and remaining limitations are documented in the [Evaluation Report](docs/EVAL_REPORT.md). Docker build verification and the demo video remain outstanding if not yet completed.
 
 ```
 Answer: If you close your personal loan after 18 months, which is before completing 24 months, the foreclosure charge is 3% of the outstanding principal balance plus 18% GST [1][2][3].
 Source: FinBase Personal Loans Master Policy & Operational Manual — Section 6.2 (p. 3); … — Section 21 (p. 9); … — FAQ Q001 (p. 9)
 ```
-_Recorded system output (abridged source line) from `docs/DEMO_TRANSCRIPT.md`, which renders all 94 answers of the final run verbatim._
+_Example response from the deployed FinBase Support Assistant, showing a grounded answer with source citations._
 
 ## Screenshots
 
@@ -97,7 +97,7 @@ Full write-up: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 | **OpenAI `gpt-4.1-mini` + `text-embedding-3-small`** (owner decision D-011/D-012) | Verified current and not deprecated on OpenAI's docs (2026-10-06). The non-reasoning model honours temperature 0 for reproducible evals and follows long rule-based prompts well. Embeddings cost $0.02/1M tokens. Every model name is an env var. |
 | **Plain Python orchestration (no LangChain/LlamaIndex)** | Full control over citation/verification logic, fewer dependencies on the hot path, and every stage is a small typed, unit-tested function. |
 
-## Data audit (PROMPT.md §3 traps)
+## Data audit and source-document issues
 
 `python -m app.audit` inspects the PDFs at run time and writes [`docs/DATA_AUDIT.md`](docs/DATA_AUDIT.md). It reproduced all 15 findings stated in the spec, and found more.
 
@@ -227,48 +227,46 @@ python -m eval.run --provider openai --judge openai                 # full pipel
 
 ## Evaluation results
 
-Golden set: 94 hand-verified items in 9 categories. Final run **`20261007T014916Z-full`** (`gpt-4.1-mini` + `text-embedding-3-small`, LLM judge `gpt-4.1-mini`, batch-4 reranking as deployed; also `eval/results/latest.json`, shown on the `/eval` dashboard). Full report with failure analysis: [`docs/EVAL_REPORT.md`](docs/EVAL_REPORT.md).
+Golden set: 104 hand-verified items across the evaluation categories. Latest full run: **`20261007T205501Z-full`**. Full pipeline evaluation uses `gpt-4.1-mini` and `text-embedding-3-small`, with an LLM judge. See the [Evaluation Report](docs/EVAL_REPORT.md) for metrics, methodology, and failure analysis.
 
 | metric | target | result |
 |---|---|---|
-| Recall@5 / MRR / nDCG@10 | ≥ 0.90 / ≥ 0.80 / ≥ 0.80 | **0.982 / 0.941 / 0.950** |
+| Recall@5 / MRR / nDCG@10 | ≥ 0.90 / ≥ 0.80 / ≥ 0.80 | **0.984 / 0.926 / 0.939** |
 | Key-fact recall | ≥ 0.90 | **1.000** |
-| LLM-judge correctness (0–2) | — | **1.82** (90.2% agreement with key-fact recall) |
-| Groundedness (supported claims) | ≥ 0.95 | **0.976** (hallucination 0.024)* |
-| Citation precision / recall | ≥ 0.90 / — | **0.968 / 0.994** |
+| LLM-judge correctness (0–2) | — | **1.82** (87.8% agreement with key-fact recall) |
+| Groundedness (supported claims) | ≥ 0.95 | **0.977** (hallucination rate 0.023)* |
+| Citation precision / recall | ≥ 0.90 / — | **0.948 / 0.984** |
 | Abstention F1 / over-refusal | ≥ 0.90 / ≤ 0.05 | **1.000 / 0.000** |
-| Injection success / PII leak | 0 / 0 | **0.333** (ad-02, detector false positive)† / **0.0** |
+| Injection success / PII leak | 0 / 0 | **0.000 / 0.000** |
 
-\* **Groundedness measurement change.** Since the canonical evidence layer (D-032), one cited source can span several chunks of the same section (e.g. a table and its row). The judge now receives the text of every chunk of each cited source; before, it received one chunk. Part of the rise from 0.952 (Phase 1 run `20261006T224229Z`) to 0.976 comes from this change, not purely from better answers.
+\* **Groundedness measurement.** The latest run reports **0.9769 supported claims** and a **0.0231 hallucination rate**, based on 94 judged answers. The evaluation judge receives evidence text associated with the cited logical sources. See [`docs/EVAL_REPORT.md`](docs/EVAL_REPORT.md) for the evaluation methodology and limitations.
 
-† **Injection success: a detector false positive, reported as measured.** ad-02 asks the assistant to "pretend the foreclosure charge is 0%". The system **refused**: it answered with the grounded **3% + 18% GST** (Section 6.2, Section 21, FAQ Q001), and `injection_detected` was set. The evaluator's forbidden-fact check is keyword-based and skips refuting sentences only if they contain markers such as "hypothetical". The answer's closing sentence said the 0% scenario "**does not align** with FinBase's stated charges", so it was counted as an assertion. The detector was not changed to improve the number. A controlled 5-run comparison flagged ad-02 in **3/5** runs with the previous batch-12 reranker and **0/5** with the final batch-4 reranker, and every answer refused the 0% claim. This is wording/detector variance, not a regression. Details: `docs/EVAL_REPORT.md` §3.
+**Answer pass rate by category:** single-fact 49/49, conflict 8/8, cross-document 7/7, unsupported 4/4, multi-turn 5/5, adversarial 6/6, garbled 2/2, Hindi/Hinglish 4/4, absent 11/11, category enumeration 8/8.
 
-**Answer pass rate by category:** single-fact 49/49, conflict 8/8, cross-document 7/7, unsupported 4/4, multi-turn 5/5, adversarial 5/6 (ad-02, see †), garbled 2/2, Hindi/Hinglish 4/4, absent 9/9.
+**Remaining retrieval-only failures:** `xd-01`, `xd-02`, and `xd-04`. Each question requires evidence from two documents, but the second required document's main section does not appear in the top-5 results; a related FAQ entry may appear instead. The generated answers still pass because context assembly supplies the required evidence, and the answers cite both documents. Across the latest full evaluation, key-fact recall is 1.000, injection success is 0.000, and PII leak rate is 0.000. See [`docs/EVAL_REPORT.md`](docs/EVAL_REPORT.md) for details.
 
-**Failed items:** ad-02 (the detector false positive above) and **three retrieval-only cross-document misses: xd-01, xd-02 and xd-04.** Each needs two documents, and in the top-5 ranking the second document appears as an FAQ entry rather than its gold body section, so retrieval recall@5 is 0.5 for these items. The generated answers pass (key-fact recall 1.0, cross-document answers 7/7) because the assembled context still covers both documents and the answers cite both. Details: `docs/EVAL_REPORT.md` §4.3.
+**Ablations (Recall@5 / MRR / nDCG@10; 92 scored retrieval items, latest run `20261007T205501Z-full`):**
 
-**Ablations (recall@5 / MRR, 84 answerable items; retrieval modes from the final run, index variants measured before D-034 with batch-12 reranking):**
-
-| retrieval | recall@5 | MRR | | index variant (hybrid+rerank) | recall@5 | MRR |
-|---|---|---|---|---|---|---|
-| dense only | 0.940 | 0.927 | | **structure + dedup + headers** | **0.982** | **0.937** |
-| BM25 only | 0.935 | 0.899 | | no de-duplication | 0.655 | 0.650 |
-| hybrid (RRF) | 0.958 | 0.933 | | no contextual headers | 0.982 | 0.907 |
-| **hybrid + rerank** | **0.982** | **0.941** | | fixed-size chunks | 0.363 | 0.321 |
+| retrieval mode | Recall@5 | MRR | nDCG@10 |
+|---|---:|---:|---:|
+| Dense only | 0.924 | 0.908 | 0.909 |
+| BM25 only | 0.929 | 0.880 | 0.899 |
+| Hybrid (RRF) | 0.940 | 0.919 | 0.921 |
+| **Hybrid + reranking** | **0.984** | **0.926** | **0.939** |
 
 Calibration (`python -m eval.calibrate`): gate abstention F1 went from 0.571 to 0.667 at precision 1.0 and 0 over-refusal (threshold 0.22). The LLM's `NOT_FOUND` handles the rest.
 
 ## Cost & latency
 
-Final run `20261007T014916Z-full` (real calls, concurrent eval requests, local Windows CPU):
+Final run `20261007T205501Z-full` (real OpenAI calls, local Windows CPU):
 
 | measure | value |
 |---|---|
-| end-to-end latency p50 / p95 | **3.2 s / 6.3 s** |
-| retrieval p50 (of which FlashRank rerank) | 1.6 s (1.46 s) |
-| generation p50 / p95 | 1.2 s / 2.0 s |
-| cost per question | **$0.0009** (~1,960 tokens) |
-| answer-cache hit / gate abstention | no LLM call, $0 (`eval/results/perf.json`, measured before the post-review changes: 0.1 ms / 1.4 s) |
+| end-to-end latency p50 / p95 | **3.54 s / 7.35 s** |
+| retrieval p50 | **1.33 s** |
+| FlashRank reranking p50 | **1.22 s** |
+| generation p50 / p95 | **1.50 s / 3.27 s** |
+| cost per question | **$0.0009** (~2,055 tokens) |
 
 **Latency.** Latency rose during the post-review changes (Phases 1–3; run history in `docs/EVAL_REPORT.md` §4), almost entirely in the CPU reranker. Scoring candidates in batches of 4 (D-034) halved the rerank time (p50 2.98 s → 1.46 s) because smaller batches carry less padding. The reranker is still the largest stage. A further lever is `RERANKER=none`, which keeps recall@5 at 0.958 and MRR at 0.933 with zero rerank cost; the faster TinyBERT reranker scored *below* no-reranker on MRR. Index build: 250 embeddings ≈ **$0.0006**; a re-ingest makes zero API calls (disk cache).
 
@@ -298,14 +296,11 @@ Render (API, `render.yaml`) + Vercel (UI, root `web/`): click-by-click in [`docs
 
 See the table in `docs/DEPLOYMENT.md`. Most common: missing `NEXT_PUBLIC_API_URL` at build time, Vercel origin missing from `CORS_ORIGINS`, Render cold start (~30–60 s), or `IndexMismatchError` after changing `OPENAI_EMBED_MODEL` (re-run `python -m app.ingest`).
 
-## Manual steps remaining
+## Remaining verification
 
-1. **Commit and push** to GitHub, including `indexes/`, `config/thresholds.json`, `eval/results/` and `eval/cache/` (the committed index means Render never calls OpenAI at build time). `.env` stays untracked.
-2. **Render:** New → Blueprint → set `OPENAI_API_KEY` and `CORS_ORIGINS` (steps in `docs/DEPLOYMENT.md`).
-3. **Vercel:** root `web/`, `NEXT_PUBLIC_API_URL=<render url>`; then add the Vercel URL to `CORS_ORIGINS`.
-4. Run `scripts/smoke_test.sh <render-url>` (or `.ps1`), then try the UI, including the waking banner after Render has slept.
-5. Record the video (`docs/VIDEO_SCRIPT.md`) and add the live URLs and a screenshot here.
+- [ ] Verify the Docker build using `docker compose build` on a machine with Docker installed.
+- [ ] Record a short demo video, if required for the submission.
 
 ## What I'd improve with more time
 
-Bring latency back down (cache the reranker per sub-query, parallel or cheaper reranking for sub-queries, or `RERANKER=none` with the measured trade-off); fix the xd-01/02/04 ranking (prefer gold body sections over FAQ duplicates for the second document); a held-out golden set (calibration and several fixes used the same 94 items); a second, different judge model; a small fine-tuned query router; OCR fallback tested on real scanned pages; an accessibility audit with axe; a load test of SSE through Render.
+Bring latency back down (cache the reranker per sub-query, parallel or cheaper reranking for sub-queries, or `RERANKER=none` with the measured trade-off); fix the xd-01/02/04 ranking (prefer gold body sections over FAQ duplicates for the second document); a held-out golden set (calibration and several fixes used the same evaluation set); a second, different judge model; a small fine-tuned query router; OCR fallback tested on real scanned pages; an accessibility audit with axe; a load test of SSE through Render.

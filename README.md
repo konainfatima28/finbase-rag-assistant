@@ -4,6 +4,7 @@ A FinTech customer-support assistant for the fictional company **FinBase**. It a
 
 - **Live demo:** https://finbase-rag-assistant.vercel.app
 - **API:** https://finbase-api.onrender.com
+- **Demo video:** [Watch the project walkthrough](https://drive.google.com/file/d/1KMp9mli8tbwaNH3CRyvw3dhz5-kdnhd8/view?usp=drive_link)
 - **Screenshots:** [View application screenshots](#screenshots) 
 - **Stack:** Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
 - **Documentation:** [Architecture](docs/ARCHITECTURE.md) · [API reference](docs/API.md) · [Deployment guide](docs/DEPLOYMENT.md) · [Evaluation report](docs/EVAL_REPORT.md) · [Data audit](docs/DATA_AUDIT.md) · [Design decisions](docs/DECISIONS.md)
@@ -299,7 +300,6 @@ See the table in `docs/DEPLOYMENT.md`. Most common: missing `NEXT_PUBLIC_API_URL
 ## Remaining verification
 
 - [ ] Verify the Docker build using `docker compose build` on a machine with Docker installed.
-- [ ] Record a short demo video, if required for the submission.
 
 ## What I'd improve with more time
 

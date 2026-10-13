@@ -3,9 +3,10 @@
 A FinTech customer-support assistant for the fictional company **FinBase**. It answers **only** from six official policy PDFs, cites the exact **document, section and page** for every fact, flags conflicting or garbled source values, and says clearly when something is not in the knowledge base.
 
 - **Live demo:** https://finbase-rag-assistant.vercel.app ·
-- **API:** https://finbase-api.onrender.com · **Screenshot:** To be Added...
-- Stack: Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
-- Status and evidence: `docs/BUILD_LOG.md` · requirement tracking: `docs/REQUIREMENTS_CHECKLIST.md` · design decisions: `docs/DECISIONS.md`
+- **API:** https://finbase-api.onrender.com ·
+- **Screenshots:** [View application screenshots](#screenshots) 
+- **Stack:** Python 3.11 · FastAPI · FAISS + BM25 + RRF + FlashRank · OpenAI `gpt-4.1-mini` + `text-embedding-3-small` · Next.js 16 · Render + Vercel
+- **Status and evidence:** `docs/BUILD_LOG.md` · requirement tracking: `docs/REQUIREMENTS_CHECKLIST.md` · design decisions: `docs/DECISIONS.md`
 
 > **Status (2026-10-07).** Built and verified end to end with real OpenAI calls. On the 94-question golden set, the final evaluation run `20261007T014916Z-full` meets 9 of 10 quality targets. The tenth, injection success, was flagged on one item by a keyword detector although the system refused the injection (details below). Deployment status: GitHub repository — complete ([konainfatima28/finbase-rag-assistant](https://github.com/konainfatima28/finbase-rag-assistant)); Render API — deployed; Render out-of-memory fix (D-034) — implemented and validated locally; Vercel frontend — pending. Also not done: `docker compose build` (Docker isn't installed on the build machine) and the video. See [Manual steps remaining](#manual-steps-remaining).
 
@@ -16,6 +17,43 @@ Source: FinBase Personal Loans Master Policy & Operational Manual — Section 6.
 _Recorded system output (abridged source line) from `docs/DEMO_TRANSCRIPT.md`, which renders all 94 answers of the final run verbatim._
 
 ## Architecture
+
+## Screenshots
+
+Screenshots of the deployed FinBase Support Assistant, demonstrating grounded answers, source citations, evidence inspection, and safe abstention.
+
+### Credit Card Information
+
+![Credit card options and citations](screenshots/01-credit-cards.png)
+
+### Personal Loan Eligibility
+
+![Personal loan eligibility requirements](screenshots/02-personal-loan-eligibility.png)
+
+### Personal Loan Sources
+
+![Personal loan answer with source citations](screenshots/03-personal-loan-sources.png)
+
+### Fixed Deposit Options
+
+![Fixed deposit options and interest rates](screenshots/04-fixed-deposit-options.png)
+
+### Fixed Deposit Details
+
+![Additional fixed deposit details](screenshots/05-fixed-deposit-details.png)
+
+### Safe Abstention
+
+![The assistant returns NOT_FOUND when home loan or car loan information is not found](screenshots/06-safe-abstention.png)
+
+### Personal Loan Evidence
+
+![Evidence drawer showing the source text behind a personal loan answer](screenshots/07-personal-loan-evidence.png)
+
+### Fixed Deposit Evidence
+
+![Evidence drawer showing the source text behind a fixed deposit answer](screenshots/08-fixed-deposit-evidence.png)
+
 
 ```mermaid
 flowchart LR
